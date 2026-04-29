@@ -1,39 +1,43 @@
-# Cybersecurity Portfolio
+---
+title: Jorge Morga - Cybersecurity Portfolio
+---
 
-**Jorge Miguel Pinto Morga**  
-Aspiring Junior SOC Analyst | Transitioning from Technical Support to Cybersecurity
+<div align="center">
+  <h1>Jorge Miguel Pinto Morga</h1>
+  <p><strong>Aspiring Junior SOC Analyst</strong></p>
+  <p>Transitioning from Technical Support to Cybersecurity</p>
+
+  <a href="https://linkedin.com/in/miguelmorga">LinkedIn</a> • 
+  <a href="mailto:u320458712@gmail.com">Email</a>
+</div>
 
 ---
 
 ### About Me
 
-IT professional with experience in technical support, incident management, and team coordination (Tier 2 / Duty Manager). Currently transitioning my career into **Cybersecurity**, with a strong focus on **Security Operations Center (SOC)** roles.
+IT professional with over 15 years of experience in technical support, incident management, and team coordination (Tier 2 / Duty Manager). Currently transitioning my career into **Cybersecurity**, with a strong focus on **Security Operations Center (SOC)**.
 
-I am building a solid foundation through structured courses, official certifications, and hands-on practice, with particular emphasis on networking, log analysis, SIEM tools, and incident investigation.
+I am building a solid foundation through structured learning, official certifications, and hands-on practice in networking, SIEM, log analysis, and incident response.
 
 **Current Goal:** Secure a position as a **Junior SOC Analyst (Tier 1)**.
 
 ---
 
-### 🏆 Certifications & Achievements
+### 🏆 Certifications
 
-**Cisco Networking Academy**
-- Networking Basics (April 2026)
-- Introduction to Cybersecurity (April 2026)
-- Junior Cybersecurity Analyst Career Path (in progress)
+- **Networking Basics** — Cisco Networking Academy (April 2026)
+- **Introduction to Cybersecurity** — Cisco Networking Academy (April 2026)
+- **EF SET English** — **C1 Proficient** (April 2026)
 
-**English Proficiency**
-- EF SET English – **C1 Proficient** (April 2026)
-
-**In Progress**
+**In Progress:**
+- Cisco Junior Cybersecurity Analyst Career Path
 - Cisco Cybersecurity Defense Analyst Career Path
 - CS50 Introduction to Cybersecurity (Harvard)
 - Splunk Fundamentals 1
-- Microsoft Sentinel
 
 ---
 
-### 🛠️ Skills
+### 🛠️ Key Skills
 
 **Cybersecurity & SOC**
 - Alert Triage & Incident Investigation
@@ -53,21 +57,21 @@ I am building a solid foundation through structured courses, official certificat
 
 ---
 
-### 📂 Projects & Learning Path
+### 📂 Learning Path & Projects
 
-- [Write-ups & Hands-on Labs](./writeups/)
 - [Cisco Learning Path](./cisco/)
-- [Practical Labs (TryHackMe & others)](./labs/)
+- [Hands-on Labs & Write-ups](./writeups/)
+- [Badges & Certificates](./badges/)
 
 ---
 
-### 📫 Connect with me
+### 📫 Get in touch
 
-- [LinkedIn](https://linkedin.com/in/miguelmorga)  
+- [LinkedIn](https://linkedin.com/in/miguelmorga)
 - Email: u320458712@gmail.com
 
 ---
 
-*"Continuous learning is the key to staying relevant in Cybersecurity."*
+*Continuous learning and hands-on practice are the foundation of a strong career in Cybersecurity.*
 
 Last updated: April 2026
