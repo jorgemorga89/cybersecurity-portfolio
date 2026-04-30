@@ -1,116 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jorge Morga | Cybersecurity Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root { --primary: #0A66C2; }
         body {
-            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
-            margin: 0;
-            background: #f8fafc;
-            color: #1f2937;
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
         }
-        header {
-            background: linear-gradient(135deg, #0A66C2, #1e88e5);
-            color: white;
-            text-align: center;
-            padding: 100px 20px 80px;
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass {
+            background: rgba(22, 27, 34, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        .accent-border:hover {
+            border-color: #00ff41;
+            transition: 0.3s;
         }
-        h1 { font-size: 2.8rem; margin: 0 0 10px 0; }
-        .tagline { font-size: 1.35rem; opacity: 0.95; }
-        nav {
-            background: white;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-        nav a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 20px 0;
-            display: block;
-        }
-        nav a:hover { color: #084d91; }
-        .section { margin: 70px 0; }
-        h2 { 
-            color: var(--primary); 
-            border-bottom: 3px solid #e5e7eb;
-            padding-bottom: 12px;
-        }
-        .card {
-            background: white;
-            padding: 28px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        .text-gradient {
+            background: linear-gradient(90deg, #00ff41, #008f11);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
-<body>
+<body class="selection:bg-green-500/30">
 
-    <header>
-        <h1>Jorge Miguel Pinto Morga</h1>
-        <p class="tagline">Aspiring Junior SOC Analyst</p>
-        <p>Transitioning from Technical Support to Cybersecurity</p>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#certifications">Certifications</a></li>
-            <li><a href="badges/">Badges</a></li>
-            <li><a href="writeups/">Write-ups</a></li>
-        </ul>
+    <!-- Navegação -->
+    <nav class="fixed w-full z-50 glass py-4 px-8 flex justify-between items-center">
+        <div class="mono text-green-500 font-bold text-xl">root@jorgemorga:~$</div>
+        <div class="space-x-6 hidden md:flex">
+            <a href="#about" class="hover:text-green-400 transition">Sobre</a>
+            <a href="#projects" class="hover:text-green-400 transition">Projetos</a>
+            <a href="#skills" class="hover:text-green-400 transition">Skills</a>
+            <a href="#contact" class="hover:text-green-400 transition">Contacto</a>
+        </div>
     </nav>
 
-    <div class="container">
+    <!-- Hero Section -->
+    <section class="h-screen flex flex-col justify-center items-center text-center px-4">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-4 uppercase tracking-tighter">
+            Jorge <span class="text-gradient">Morga</span>
+        </h1>
+        <p class="mono text-lg md:text-xl text-gray-400 max-w-2xl">
+            Cybersecurity Enthusiast | Blue Team | Ethical Hacking
+        </p>
+        <div class="mt-8 flex gap-4">
+            <a href="#projects" class="bg-green-600 hover:bg-green-500 text-white px-8 py-3 rounded-md font-bold transition">Ver Projetos</a>
+            <a href="#" class="border border-gray-600 hover:border-green-400 px-8 py-3 rounded-md font-bold transition">Download CV</a>
+        </div>
+    </section>
 
-        <div id="about" class="section">
-            <h2>About Me</h2>
-            <div class="card">
-                <p>IT professional with over 15 years of experience in technical support, incident management and team coordination. Passionate about transitioning into Cybersecurity, with a clear focus on Security Operations Center (SOC) roles.</p>
+    <!-- Projetos -->
+    <section id="projects" class="py-20 px-8 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 border-l-4 border-green-500 pl-4">Projetos em Destaque</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Projeto 1 -->
+            <div class="glass p-6 rounded-xl accent-border group transition shadow-xl">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="text-green-500 mono text-sm">#NetworkSecurity</span>
+                    <a href="#" class="text-gray-400 hover:text-white transition">GITHUB ↗</a>
+                </div>
+                <h3 class="text-xl font-bold mb-2 group-hover:text-green-400">Análise de Tráfego IDS</h3>
+                <p class="text-gray-400 text-sm mb-4">Implementação de regras Snort para deteção de varrimentos Nmap e ataques DoS em rede local.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-gray-800 text-[10px] px-2 py-1 rounded uppercase">Snort</span>
+                    <span class="bg-gray-800 text-[10px] px-2 py-1 rounded uppercase">Linux</span>
+                    <span class="bg-gray-800 text-[10px] px-2 py-1 rounded uppercase">Wireshark</span>
+                </div>
+            </div>
+
+            <!-- Projeto 2 -->
+            <div class="glass p-6 rounded-xl accent-border group transition shadow-xl">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="text-green-500 mono text-sm">#Scripting</span>
+                    <a href="#" class="text-gray-400 hover:text-white transition">GITHUB ↗</a>
+                </div>
+                <h3 class="text-xl font-bold mb-2 group-hover:text-green-400">Automated Vuln Scanner</h3>
+                <p class="text-gray-400 text-sm mb-4">Script em Python que automatiza a recolha de banners e mapeamento de vulnerabilidades CVE conhecidas.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-gray-800 text-[10px] px-2 py-1 rounded uppercase">Python</span>
+                    <span class="bg-gray-800 text-[10px] px-2 py-1 rounded uppercase">Nmap API</span>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div id="skills" class="section">
-            <h2>Key Skills</h2>
-            <div class="card">
-                <strong>Cybersecurity & SOC:</strong> Alert Triage, Incident Investigation, SIEM (Splunk & Sentinel), Log Analysis, MITRE ATT&CK<br><br>
-                <strong>Networking:</strong> Network Fundamentals, Troubleshooting, Wireshark<br><br>
-                <strong>Languages:</strong> Portuguese (Native) • English (C1)
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-[#0a0d12]">
+        <div class="max-w-6xl mx-auto px-8 text-center">
+            <h2 class="text-3xl font-bold mb-12">Expertise Técnica</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="p-4 border border-gray-800 rounded-lg hover:bg-gray-800 transition">
+                    <p class="mono text-green-500">Penetration Testing</p>
+                </div>
+                <div class="p-4 border border-gray-800 rounded-lg hover:bg-gray-800 transition">
+                    <p class="mono text-green-500">SIEM / SOC</p>
+                </div>
+                <div class="p-4 border border-gray-800 rounded-lg hover:bg-gray-800 transition">
+                    <p class="mono text-green-500">Malware Analysis</p>
+                </div>
+                <div class="p-4 border border-gray-800 rounded-lg hover:bg-gray-800 transition">
+                    <p class="mono text-green-500">Cloud Security</p>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div id="certifications" class="section">
-            <h2>Certifications</h2>
-            <div class="card">
-                <p><strong>Cisco Networking Academy</strong><br>
-                • Networking Basics (2026)<br>
-                • Introduction to Cybersecurity (2026)</p>
-                <p><strong>English</strong><br>
-                • EF SET English – C1 Proficient (2026)</p>
-            </div>
+    <!-- Rodapé -->
+    <footer id="contact" class="py-10 text-center border-t border-gray-800">
+        <p class="mono text-sm text-gray-500 mb-4">Encerrando sessão...</p>
+        <div class="flex justify-center gap-6">
+            <a href="https://linkedin.com" class="hover:text-green-500 transition">LinkedIn</a>
+            <a href="https://github.com" class="hover:text-green-500 transition">GitHub</a>
+            <a href="mailto:email@exemplo.com" class="hover:text-green-500 transition">Email</a>
         </div>
-
-    </div>
+        <p class="mt-8 text-xs text-gray-600">© 2024 Jorge Morga. Todos os direitos reservados.</p>
+    </footer>
 
 </body>
 </html>
