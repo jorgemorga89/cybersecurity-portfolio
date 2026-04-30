@@ -4,127 +4,190 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jorge Morga | Cybersecurity Portfolio</title>
-    <!-- Google Fonts -->
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff00ff'><path d='M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 12c-2.7 0-5.2-1.6-6.4-4.1.3-.9 1.1-1.9 2.4-2.4 1.1.4 2.2.6 3.4.6s2.3-.2 3.4-.6c1.3.5 2.1 1.5 2.4 2.4-1.2 2.5-3.7 4.1-6.4 4.1z'/></svg>">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS -->
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyberblack: '#050509',
+                        cyberpurple: '#8a2be2', // Primary
+                        cyberpink: '#ff00ff',   // Secondary/Neon
+                        cyberdark: '#10101a',
+                        cybergray: '#c9d1d9',
+                    }
+                }
+            }
+        }
+    </script>
+    
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0d1117;
-            color: #c9d1d9;
+            background-color: #050509; /* cyberblack */
+            color: #c9d1d9; /* cybergray */
         }
         .mono { font-family: 'JetBrains Mono', monospace; }
         .glass {
-            background: rgba(22, 27, 34, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(16, 16, 26, 0.7); /* cyberdark */
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 0, 255, 0.1); /* cyberpink low opacity */
         }
-        .accent-border:hover {
-            border-color: #00ff41;
-            transition: 0.3s;
+        
+        /* Neon Borders & Effects */
+        .neon-border-purple:hover {
+            border-color: #8a2be2;
+            box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+            transition: 0.3s ease-in-out;
         }
-        .text-gradient {
-            background: linear-gradient(90deg, #00ff41, #008f11);
+        .neon-border-pink:hover {
+            border-color: #ff00ff;
+            box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+            transition: 0.3s ease-in-out;
+        }
+        .text-gradient-cyber {
+            background: linear-gradient(90deg, #8a2be2, #ff00ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        
+        /* Encription Effect Classes */
+        .glitch-text {
+            visibility: hidden; /* Oculto até o JS correr */
+        }
     </style>
 </head>
-<body class="selection:bg-green-500/30">
+<body class="selection:bg-cyberpink/30">
 
-    <!-- Navegação -->
-    <nav class="fixed w-full z-50 glass py-4 px-8 flex justify-between items-center">
-        <div class="mono text-green-500 font-bold text-xl">root@jorgemorga:~$</div>
-        <div class="space-x-6 hidden md:flex">
-            <a href="#about" class="hover:text-green-400 transition">Sobre</a>
-            <a href="#projects" class="hover:text-green-400 transition">Projetos</a>
-            <a href="#skills" class="hover:text-green-400 transition">Skills</a>
-            <a href="#contact" class="hover:text-green-400 transition">Contacto</a>
+    <nav class="fixed w-full z-50 glass py-3 px-6 flex justify-between items-center border-b border-cyberpink/10">
+        <a href="#" class="flex items-center gap-2 group">
+            <svg class="h-8 w-8 fill-cyberpink group-hover:fill-cyberpurple transition" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 12c-2.7 0-5.2-1.6-6.4-4.1.3-.9 1.1-1.9 2.4-2.4 1.1.4 2.2.6 3.4.6s2.3-.2 3.4-.6c1.3.5 2.1 1.5 2.4 2.4-1.2 2.5-3.7 4.1-6.4 4.1z"/></svg>
+            <span class="mono text-cyberpink font-bold group-hover:text-cyberpurple transition">JM_SEC</span>
+        </a>
+        <div class="space-x-6 hidden md:flex mono text-sm">
+            <a href="#about" class="hover:text-cyberpink transition">./sobre</a>
+            <a href="#projects" class="hover:text-cyberpink transition">./projetos</a>
+            <a href="#skills" class="hover:text-cyberpink transition">./skills</a>
+            <a href="#contact" class="hover:text-cyberpink transition">./contacto</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="h-screen flex flex-col justify-center items-center text-center px-4">
-        <h1 class="text-5xl md:text-7xl font-extrabold mb-4 uppercase tracking-tighter">
-            Jorge <span class="text-gradient">Morga</span>
+    <section class="h-screen flex flex-col justify-center items-center text-center px-4 bg-[url('data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 width=%274%27 height=%274%27 viewBox=%270 0 4 4%27><rect width=%274%27 height=%274%27 fill=%27%23050509%27/><circle cx=%271%27 cy=%271%27 r=%271%27 fill=%27%2310101a%27/></svg>')]">
+        <h1 class="text-6xl md:text-8xl font-extrabold mb-4 uppercase tracking-tighter mono relative">
+            <span id="encripted-name" class="glitch-text text-gradient-cyber">Jorge Morga</span>
+            <span id="scramble-runtime" class="absolute inset-0 text-cybergray opacity-30"></span>
         </h1>
-        <p class="mono text-lg md:text-xl text-gray-400 max-w-2xl">
-            Cybersecurity Enthusiast | Blue Team | Ethical Hacking
+        <p class="mono text-lg md:text-xl text-gray-400 max-w-2xl mt-4">
+            Defending the Digital Frontier | Blue Team | Threat Intel
         </p>
-        <div class="mt-8 flex gap-4">
-            <a href="#projects" class="bg-green-600 hover:bg-green-500 text-white px-8 py-3 rounded-md font-bold transition">Ver Projetos</a>
-            <a href="#" class="border border-gray-600 hover:border-green-400 px-8 py-3 rounded-md font-bold transition">Download CV</a>
+        <div class="mt-12 flex gap-4">
+            <a href="#projects" class="bg-cyberpurple hover:bg-cyberpurple/80 text-white px-8 py-3 rounded-sm font-bold transition mono text-sm tracking-widest">>> ACEDER_PROJETOS</a>
+            <a href="#" class="border border-cyberpink text-cyberpink hover:bg-cyberpink hover:text-cyberblack px-8 py-3 rounded-sm font-bold transition mono text-sm tracking-widest">DOWNLOAD_CV</a>
         </div>
     </section>
 
-    <!-- Projetos -->
-    <section id="projects" class="py-20 px-8 max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold mb-12 border-l-4 border-green-500 pl-4">Projetos em Destaque</h2>
+    <section id="projects" class="py-24 px-8 max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold mb-16 mono text-cyberpink border-b-2 border-cyberpink/20 pb-4 inline-block">./projetos_recentes</h2>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Projeto 1 -->
-            <div class="glass p-6 rounded-xl accent-border group transition shadow-xl">
-                <div class="flex justify-between items-start mb-4">
-                    <span class="text-green-500 mono text-sm">#NetworkSecurity</span>
-                    <a href="#" class="text-gray-400 hover:text-white transition">GITHUB ↗</a>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="glass p-7 rounded-lg neon-border-pink group transition shadow-2xl flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-cyberpink mono text-xs uppercase tracking-widest">Network_Traffic</span>
+                        <a href="#" class="text-gray-500 hover:text-cyberpink transition mono text-xs">GFH ↗</a>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 group-hover:text-cyberpink transition">IDS Snort Ruleset</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">Desenvolvimento e validação de regras Snort personalizadas para deteção de técnicas de exfiltração de dados e scanners silenciosos.</p>
                 </div>
-                <h3 class="text-xl font-bold mb-2 group-hover:text-green-400">Análise de Tráfego IDS</h3>
-                <p class="text-gray-400 text-sm mb-4">Implementação de regras Snort para deteção de varrimentos Nmap e ataques DoS em rede local.</p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="bg-gray-800 text-[10px] px-2 py-1 rounded uppercase">Snort</span>
-                    <span class="bg-gray-800 text-[10px] px-2 py-1 rounded uppercase">Linux</span>
-                    <span class="bg-gray-800 text-[10px] px-2 py-1 rounded uppercase">Wireshark</span>
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-cyberpink/10">
+                    <span class="bg-cyberdark border border-cyberpink/30 text-cyberpink text-[10px] px-3 py-1 rounded-full uppercase mono">Snort</span>
+                    <span class="bg-cyberdark border border-cyberpink/30 text-cyberpink text-[10px] px-3 py-1 rounded-full uppercase mono">PCAP_Analys</span>
                 </div>
             </div>
 
-            <!-- Projeto 2 -->
-            <div class="glass p-6 rounded-xl accent-border group transition shadow-xl">
-                <div class="flex justify-between items-start mb-4">
-                    <span class="text-green-500 mono text-sm">#Scripting</span>
-                    <a href="#" class="text-gray-400 hover:text-white transition">GITHUB ↗</a>
+            <div class="glass p-7 rounded-lg neon-border-purple group transition shadow-2xl flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-cyberpurple mono text-xs uppercase tracking-widest">Automation</span>
+                        <a href="#" class="text-gray-500 hover:text-cyberpurple transition mono text-xs">GFH ↗</a>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 group-hover:text-cyberpurple transition">Vuln_Scout Python</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">Ferramenta em Python que cruza resultados do Nmap com a API CVE Circus para gerar relatórios rápidos de superfície de ataque.</p>
                 </div>
-                <h3 class="text-xl font-bold mb-2 group-hover:text-green-400">Automated Vuln Scanner</h3>
-                <p class="text-gray-400 text-sm mb-4">Script em Python que automatiza a recolha de banners e mapeamento de vulnerabilidades CVE conhecidas.</p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="bg-gray-800 text-[10px] px-2 py-1 rounded uppercase">Python</span>
-                    <span class="bg-gray-800 text-[10px] px-2 py-1 rounded uppercase">Nmap API</span>
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-cyberpurple/10">
+                    <span class="bg-cyberdark border border-cyberpurple/30 text-cyberpurple text-[10px] px-3 py-1 rounded-full uppercase mono">Python</span>
+                    <span class="bg-cyberdark border border-cyberpurple/30 text-cyberpurple text-[10px] px-3 py-1 rounded-full uppercase mono">Nmap_API</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-[#0a0d12]">
+    <section id="skills" class="py-24 bg-cyberdark/50 border-t border-b border-cyberpurple/10">
         <div class="max-w-6xl mx-auto px-8 text-center">
-            <h2 class="text-3xl font-bold mb-12">Expertise Técnica</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="p-4 border border-gray-800 rounded-lg hover:bg-gray-800 transition">
-                    <p class="mono text-green-500">Penetration Testing</p>
+            <h2 class="text-4xl font-bold mb-16 mono text-cyberpurple">./core_competencies</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mono text-sm">
+                <div class="p-5 border border-cyberpurple/20 rounded-md hover:border-cyberpurple hover:bg-cyberpurple/10 transition group">
+                    <p class="text-cybergray group-hover:text-cyberpurple">Threat Hunting</p>
                 </div>
-                <div class="p-4 border border-gray-800 rounded-lg hover:bg-gray-800 transition">
-                    <p class="mono text-green-500">SIEM / SOC</p>
+                <div class="p-5 border border-cyberpurple/20 rounded-md hover:border-cyberpurple hover:bg-cyberpurple/10 transition group">
+                    <p class="text-cybergray group-hover:text-cyberpurple">SIEM Engineering</p>
                 </div>
-                <div class="p-4 border border-gray-800 rounded-lg hover:bg-gray-800 transition">
-                    <p class="mono text-green-500">Malware Analysis</p>
+                <div class="p-5 border border-cyberpurple/20 rounded-md hover:border-cyberpurple hover:bg-cyberpurple/10 transition group">
+                    <p class="text-cybergray group-hover:text-cyberpurple">Incident Response</p>
                 </div>
-                <div class="p-4 border border-gray-800 rounded-lg hover:bg-gray-800 transition">
-                    <p class="mono text-green-500">Cloud Security</p>
+                <div class="p-5 border border-cyberpurple/20 rounded-md hover:border-cyberpurple hover:bg-cyberpurple/10 transition group">
+                    <p class="text-cybergray group-hover:text-cyberpurple">Cloud Audit</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Rodapé -->
-    <footer id="contact" class="py-10 text-center border-t border-gray-800">
-        <p class="mono text-sm text-gray-500 mb-4">Encerrando sessão...</p>
-        <div class="flex justify-center gap-6">
-            <a href="https://linkedin.com" class="hover:text-green-500 transition">LinkedIn</a>
-            <a href="https://github.com" class="hover:text-green-500 transition">GitHub</a>
-            <a href="mailto:email@exemplo.com" class="hover:text-green-500 transition">Email</a>
+    <footer id="contact" class="py-12 text-center border-t border-cyberpink/10">
+        <p class="mono text-sm text-gray-600 mb-6">>> STATUS: SESSION_TERMINATED...</p>
+        <div class="flex justify-center gap-8 mono text-sm">
+            <a href="#" class="text-cyberpink hover:text-cyberpurple transition">[LinkedIn]</a>
+            <a href="#" class="text-cyberpink hover:text-cyberpurple transition">[GitHub]</a>
+            <a href="#" class="text-cyberpink hover:text-cyberpurple transition">[Email]</a>
         </div>
-        <p class="mt-8 text-xs text-gray-600">© 2024 Jorge Morga. Todos os direitos reservados.</p>
+        <p class="mt-10 text-xs text-gray-700 mono">© 2024 JORGE_MORGA // ALL_RIGHTS_RESERVED // NO_UNAUTHORIZED_ACCESS</p>
     </footer>
 
+    <script>
+        const nameElement = document.getElementById('encripted-name');
+        const scrambleRuntime = document.getElementById('scramble-runtime');
+        const finalName = "Jorge Morga";
+        const chars = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz0123456789@#$%&*";
+        let iterations = 0;
+        
+        function scramble() {
+            let scrambled = "";
+            for (let i = 0; i < finalName.length; i++) {
+                if (i < iterations) {
+                    scrambled += finalName[i];
+                } else {
+                    scrambled += chars[Math.floor(Math.random() * chars.length)];
+                }
+            }
+            scrambleRuntime.innerText = scrambled;
+            
+            if (iterations < finalName.length) {
+                iterations += 1/3; // Velocidade da desencriptação
+                requestAnimationFrame(scramble);
+            } else {
+                // Finaliza: Esconde o scramble runtime e mostra o nome real
+                scrambleRuntime.style.display = 'none';
+                nameElement.style.visibility = 'visible';
+            }
+        }
+        
+        // Inicia o efeito após um pequeno delay
+        setTimeout(scramble, 500);
+    </script>
 </body>
 </html>
