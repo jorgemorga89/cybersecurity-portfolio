@@ -1,16 +1,22 @@
 # 🏆 Badges & Certifications
 
-Here is a record of the badges and certifications I have earned during my Cybersecurity learning journey.
+Here are the certifications and achievements from my Cybersecurity learning journey.
 
 ### Cisco Networking Academy
-- **Networking Basics** (April 27, 2026)
-- **Introduction to Cybersecurity** (April 16, 2026)
-- **Junior Cybersecurity Analyst Career Path** (in progress)
+
+![Networking Basics](./cisco-networking-basics.png)
+**Networking Basics** — April 27, 2026
+
+![Introduction to Cybersecurity](./cisco-intro-cybersecurity.png)
+**Introduction to Cybersecurity** — April 16, 2026
 
 ### English Proficiency
-- **EF SET English** – **C1 Proficient** (April 27, 2026)
+
+**[EF SET English Certificate](./../certificates/ef-set-c1.pdf)**  
+**EF SET English** – **C1 Proficient** — April 27, 2026
 
 ### In Progress
+- Cisco Junior Cybersecurity Analyst Career Path
 - Cisco Cybersecurity Defense Analyst Career Path
 - CS50 Introduction to Cybersecurity (Harvard)
 - Splunk Fundamentals 1
@@ -18,4 +24,4 @@ Here is a record of the badges and certifications I have earned during my Cybers
 
 ---
 
-**Note:** Digital badges are available on my Cisco Networking Academy profile and EF SET.
+*Full PDF certificates are available in the [Certificates folder](./../certificates/).*
