@@ -17,9 +17,9 @@ I am building a solid foundation through structured courses, official certificat
 
 ### Navigation
 
-- [Badges & Certifications](./badges/)
-- [Write-ups & Hands-on Labs](./writeups/)
-- [Certificates](./certificates/)
+- [🏆 Badges & Certifications](./badges/)
+- [📝 Write-ups & Hands-on Labs](./writeups/)
+- [📜 Certificates](./certificates/)
 - [Cisco Learning Path](./cisco/)
 
 ---
