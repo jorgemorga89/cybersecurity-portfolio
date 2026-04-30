@@ -5,39 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jorge Morga | Cybersecurity Portfolio</title>
     <style>
-        :root {
-            --primary: #0A66C2;
-        }
+        :root { --primary: #0A66C2; }
         body {
-            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f4f6f9;
-            color: #333;
+            background: #f8fafc;
+            color: #1f2937;
         }
         header {
-            background: linear-gradient(135deg, #0A66C2, #1a7dd4);
+            background: linear-gradient(135deg, #0A66C2, #1e88e5);
             color: white;
             text-align: center;
-            padding: 80px 20px 60px;
+            padding: 100px 20px 80px;
         }
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 40px 20px;
         }
-        h1 {
-            margin: 0 0 10px 0;
-            font-size: 2.8rem;
-        }
-        .tagline {
-            font-size: 1.35rem;
-            opacity: 0.95;
-            margin-bottom: 20px;
-        }
+        h1 { font-size: 2.8rem; margin: 0 0 10px 0; }
+        .tagline { font-size: 1.35rem; opacity: 0.95; }
         nav {
             background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -48,33 +38,28 @@
             margin: 0;
             display: flex;
             justify-content: center;
+            gap: 40px;
             flex-wrap: wrap;
         }
-        nav ul li {
-            padding: 15px 25px;
-        }
-        nav ul li a {
+        nav a {
             color: var(--primary);
             text-decoration: none;
             font-weight: 500;
+            padding: 20px 0;
+            display: block;
         }
-        nav ul li a:hover {
-            color: #084d91;
-        }
-        .section {
-            margin: 60px 0;
-        }
-        h2 {
-            color: var(--primary);
-            border-bottom: 3px solid #eee;
+        nav a:hover { color: #084d91; }
+        .section { margin: 70px 0; }
+        h2 { 
+            color: var(--primary); 
+            border-bottom: 3px solid #e5e7eb;
             padding-bottom: 12px;
         }
         .card {
             background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            margin-bottom: 25px;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
         }
     </style>
 </head>
@@ -93,7 +78,6 @@
             <li><a href="#certifications">Certifications</a></li>
             <li><a href="badges/">Badges</a></li>
             <li><a href="writeups/">Write-ups</a></li>
-            <li><a href="certificates/">Certificates</a></li>
         </ul>
     </nav>
 
@@ -101,15 +85,16 @@
 
         <div id="about" class="section">
             <h2>About Me</h2>
-            <p>IT professional with over 15 years of experience in technical support, incident management, and team coordination (Tier 2 / Duty Manager). Currently dedicated to transitioning my career into Cybersecurity, with a strong focus on Security Operations Center (SOC) roles.</p>
-            <p>I am actively building practical skills through structured learning, certifications, and hands-on labs in networking, SIEM, log analysis, and incident response.</p>
+            <div class="card">
+                <p>IT professional with over 15 years of experience in technical support, incident management and team coordination. Passionate about transitioning into Cybersecurity, with a clear focus on Security Operations Center (SOC) roles.</p>
+            </div>
         </div>
 
         <div id="skills" class="section">
             <h2>Key Skills</h2>
             <div class="card">
-                <strong>Cybersecurity & SOC:</strong> Alert Triage, Incident Investigation, SIEM Fundamentals, Log Analysis, MITRE ATT&CK<br><br>
-                <strong>Networking & Support:</strong> Network Fundamentals, Advanced Troubleshooting, Ticket Management<br><br>
+                <strong>Cybersecurity & SOC:</strong> Alert Triage, Incident Investigation, SIEM (Splunk & Sentinel), Log Analysis, MITRE ATT&CK<br><br>
+                <strong>Networking:</strong> Network Fundamentals, Troubleshooting, Wireshark<br><br>
                 <strong>Languages:</strong> Portuguese (Native) • English (C1)
             </div>
         </div>
@@ -117,23 +102,12 @@
         <div id="certifications" class="section">
             <h2>Certifications</h2>
             <div class="card">
-                <p><strong>Cisco Networking Academy</strong></p>
-                <p>• Networking Basics (2026)<br>
-                   • Introduction to Cybersecurity (2026)</p>
-                <p><strong>English</strong></p>
-                <p>• EF SET English – C1 Proficient (2026)</p>
+                <p><strong>Cisco Networking Academy</strong><br>
+                • Networking Basics (2026)<br>
+                • Introduction to Cybersecurity (2026)</p>
+                <p><strong>English</strong><br>
+                • EF SET English – C1 Proficient (2026)</p>
             </div>
-        </div>
-
-        <div class="section">
-            <h2>Learning Journey</h2>
-            <p>Currently progressing through:</p>
-            <ul>
-                <li>Cisco Junior Cybersecurity Analyst Career Path</li>
-                <li>Cisco Cybersecurity Defense Analyst Career Path</li>
-                <li>CS50 Cybersecurity (Harvard)</li>
-                <li>Splunk Fundamentals & Microsoft Sentinel</li>
-            </ul>
         </div>
 
     </div>
