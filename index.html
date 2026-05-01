@@ -28,9 +28,9 @@
             -webkit-text-fill-color: transparent;
         }
         .page-section { display: none; }
-        .page-section.active { display: block; animation: fadeIn 0.5s ease-in-out; }
+        .page-section.active { display: block; animation: fadeIn 0.6s ease-out; }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
@@ -42,16 +42,15 @@
     <!-- NAVBAR -->
     <nav class="fixed w-full z-50 glass py-4 px-8 flex justify-between items-center border-b border-cyberpink/10">
         <a href="javascript:void(0)" onclick="showSection('home')" class="flex items-center gap-3">
-            <!-- Custom Shield SVG (Based on encrypted.png) -->
+            <!-- Custom Shield SVG -->
             <svg class="h-8 w-8" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                 <path d="M465.3 124.7c-31.5-12.7-65.4-23-100-30.4C333.1 41.5 285.9 0 256 0s-77.1 41.5-109.3 94.3c-34.6 7.4-68.5 17.7-100 30.4C19.3 135.2 0 168.1 0 203.4c0 148.5 137.9 265.8 240.3 304.1 9.9 3.7 21.5 3.7 31.4 0C374.1 469.2 512 351.9 512 203.4c0-35.3-19.3-68.2-46.7-78.7z" fill="#ff00ff"/>
-                <path d="M256 32c22.6 0 59.9 33.6 89.2 81.3-30.1-6-61.2-10.2-93.2-12.4-32 2.2-63.1 6.3-93.2 12.4 29.3-47.7 66.6-81.3 89.2-81.3z" fill="#ffffff" opacity="0.2"/>
                 <path d="M441.6 183.3c-23.7-10-49.8-17.8-77.6-23.2-31.3-6.1-64.4-9.3-98.1-9.3s-66.8 3.2-98.1 9.3c-27.8 5.4-53.9 13.2-77.6 23.2-11.4 4.8-18.2 15.6-18.2 27.6 0 117.8 107.5 211.5 193.9 243.6 12.6 4.7 26.6 4.7 39.2 0 86.4-32.1 193.9-125.8 193.9-243.6 0-12-6.8-22.8-18.2-27.6z" fill="none" stroke="#ffffff" stroke-width="20"/>
                 <path d="M213.3 300.3l-53.3-53.3-22.7 22.7 76 76 160-160-22.7-22.7z" fill="#ffffff"/>
             </svg>
             <span class="mono text-white font-bold text-xl tracking-tighter">C_SEC</span>
         </a>
-        <div class="space-x-6 hidden md:flex mono text-[10px] uppercase tracking-widest">
+        <div class="space-x-6 hidden md:flex mono text-[10px] uppercase tracking-widest font-bold">
             <a href="javascript:void(0)" onclick="showSection('about')" class="hover:text-cyberpink transition-all font-bold">// About</a>
             <a href="javascript:void(0)" onclick="showSection('projects')" class="hover:text-cyberpink transition-all font-bold">// Projects</a>
             <a href="javascript:void(0)" onclick="showSection('certificates')" class="hover:text-cyberpink transition-all font-bold">// Certificates</a>
@@ -62,79 +61,92 @@
     </nav>
 
     <!-- SECTION: HOME -->
-    <main id="home" class="page-section active pt-20">
-        <section class="h-[85vh] flex flex-col justify-center items-center text-center">
-            <h1 class="text-6xl md:text-8xl font-extrabold uppercase mono">
+    <main id="home" class="page-section active">
+        <!-- HERO AREA -->
+        <section class="h-screen flex flex-col justify-center items-center text-center px-4">
+            <h1 class="text-6xl md:text-8xl font-extrabold uppercase mono tracking-tight">
                 <span id="scramble-runtime" class="text-gradient"></span>
             </h1>
-            <p class="mono text-xs text-white mt-6 tracking-[0.4em] uppercase font-bold">
+            
+            <p class="mono text-xs text-white mt-10 tracking-[0.4em] uppercase font-bold opacity-90">
                 > Tier 2 Technical Escalation Point | Aspiring SOC Analyst
             </p>
-            <div class="mt-12 flex gap-6">
-                <a href="javascript:void(0)" onclick="showSection('projects')" class="bg-cyberpurple hover:bg-cyberpurple/80 text-white px-8 py-3 rounded-sm font-bold transition-all mono text-xs tracking-widest">./LABS_PROJECTS</a>
-                <a href="cv.html" class="border border-cyberpink text-cyberpink hover:bg-cyberpink hover:text-black px-8 py-3 rounded-sm font-bold transition-all mono text-xs tracking-widest">ACCESS_CV</a>
-            </div>
-        </section>
 
-        <!-- PREVIEW: PROJECTS -->
-        <section class="py-20 px-8 max-w-7xl mx-auto">
-            <h2 class="mono text-cyberpink mb-10 text-xl">// Recent_Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass p-7 rounded neon-border-purple transition-all group">
-                    <h3 class="font-bold text-white mb-2 uppercase">Snort IDS Lab</h3>
-                    <p class="text-xs text-gray-500 leading-relaxed">Traffic analysis and custom rule creation for intrusion detection.</p>
-                </div>
-                <div class="glass p-7 rounded neon-border-purple transition-all group">
-                    <h3 class="font-bold text-white mb-2 uppercase">Python Port Scanner</h3>
-                    <p class="text-xs text-gray-500 leading-relaxed">Automated socket-based tool for network reconnaissance.</p>
-                </div>
-                <a href="javascript:void(0)" onclick="showSection('projects')" class="glass p-7 rounded border border-cyberpink/40 flex items-center justify-center hover:bg-cyberpink/10 transition-all group">
-                    <span class="mono text-cyberpink font-bold italic">SEE_ALL_PROJECTS →</span>
+            <div class="mt-20 flex flex-col md:flex-row gap-8">
+                <a href="javascript:void(0)" onclick="showSection('projects')" 
+                   class="bg-cyberpurple hover:bg-cyberpurple/80 text-white px-10 py-4 rounded-sm font-bold transition-all mono text-xs tracking-widest shadow-lg shadow-cyberpurple/20">
+                   ./LABS_PROJECTS
+                </a>
+                <a href="cv.html" 
+                   class="border border-cyberpink text-cyberpink hover:bg-cyberpink hover:text-black px-10 py-4 rounded-sm font-bold transition-all mono text-xs tracking-widest shadow-lg shadow-cyberpink/20">
+                   ACCESS_CV
                 </a>
             </div>
         </section>
 
-        <!-- PREVIEW: CERTIFICATES -->
-        <section class="py-20 px-8 max-w-7xl mx-auto border-t border-white/5">
-            <h2 class="mono text-cyberpink mb-10 text-xl">// Recent_Certificates</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass p-7 rounded neon-border-purple transition-all group">
-                    <h3 class="font-bold text-white mb-2">Networking Basics</h3>
-                    <p class="text-xs text-gray-500">Cisco Networking Academy | 2026</p>
+        <!-- PREVIEW SECTIONS ON HOME -->
+        <section class="py-24 px-8 max-w-7xl mx-auto space-y-32">
+            
+            <!-- LATEST PROJECTS -->
+            <div>
+                <h2 class="mono text-cyberpink mb-10 text-xl font-bold">// Recent_Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass p-8 rounded neon-border-purple transition-all group">
+                        <h3 class="font-bold text-white mb-2 uppercase">Snort IDS Lab</h3>
+                        <p class="text-[10px] text-gray-500 leading-relaxed">Network traffic analysis and intrusion detection logs.</p>
+                    </div>
+                    <div class="glass p-8 rounded neon-border-purple transition-all group">
+                        <h3 class="font-bold text-white mb-2 uppercase">Python Port Scanner</h3>
+                        <p class="text-[10px] text-gray-500 leading-relaxed">Automated security scanning and reconnaissance tool.</p>
+                    </div>
+                    <a href="javascript:void(0)" onclick="showSection('projects')" class="glass p-8 rounded border border-cyberpink/40 flex items-center justify-center hover:bg-cyberpink/10 transition-all group italic">
+                        <span class="mono text-cyberpink font-bold">SEE_ALL_PROJECTS →</span>
+                    </a>
                 </div>
-                <div class="glass p-7 rounded neon-border-purple transition-all group">
-                    <h3 class="font-bold text-white mb-2">Intro to Cybersecurity</h3>
-                    <p class="text-xs text-gray-500">Cisco Networking Academy | 2026</p>
-                </div>
-                <a href="javascript:void(0)" onclick="showSection('certificates')" class="glass p-7 rounded border border-cyberpink/40 flex items-center justify-center hover:bg-cyberpink/10 transition-all group">
-                    <span class="mono text-cyberpink font-bold italic">SEE_ALL_CERTS →</span>
-                </a>
             </div>
-        </section>
 
-        <!-- PREVIEW: SKILLS -->
-        <section class="py-20 px-8 max-w-7xl mx-auto border-t border-white/5">
-            <h2 class="mono text-cyberpink mb-10 text-xl">// Core_Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass p-7 rounded neon-border-purple transition-all group">
-                    <h3 class="font-bold text-white mb-2 uppercase">Network Security</h3>
-                    <p class="text-xs text-gray-500">TCP/IP, Firewalls, Troubleshooting.</p>
+            <!-- LATEST CERTS -->
+            <div class="pt-20 border-t border-white/5">
+                <h2 class="mono text-cyberpink mb-10 text-xl font-bold">// Recent_Certificates</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass p-8 rounded neon-border-purple transition-all group">
+                        <h3 class="font-bold text-white mb-2 uppercase">Networking Basics</h3>
+                        <p class="text-[10px] text-gray-500">Cisco Networking Academy</p>
+                    </div>
+                    <div class="glass p-8 rounded neon-border-purple transition-all group">
+                        <h3 class="font-bold text-white mb-2 uppercase">Intro to Cyber</h3>
+                        <p class="text-[10px] text-gray-500">Cisco Networking Academy</p>
+                    </div>
+                    <a href="javascript:void(0)" onclick="showSection('certificates')" class="glass p-8 rounded border border-cyberpink/40 flex items-center justify-center hover:bg-cyberpink/10 transition-all group italic">
+                        <span class="mono text-cyberpink font-bold">SEE_ALL_CERTS →</span>
+                    </a>
                 </div>
-                <div class="glass p-7 rounded neon-border-purple transition-all group">
-                    <h3 class="font-bold text-white mb-2 uppercase">Technical Escalation</h3>
-                    <p class="text-xs text-gray-500">Incident resolution & Tier 2 support.</p>
-                </div>
-                <a href="javascript:void(0)" onclick="showSection('skills')" class="glass p-7 rounded border border-cyberpink/40 flex items-center justify-center hover:bg-cyberpink/10 transition-all group">
-                    <span class="mono text-cyberpink font-bold italic">SEE_ALL_SKILLS →</span>
-                </a>
             </div>
-        </section>
 
-        <!-- FOOTER (Integrated) -->
+            <!-- CORE SKILLS -->
+            <div class="pt-20 border-t border-white/5">
+                <h2 class="mono text-cyberpink mb-10 text-xl font-bold">// Core_Skills</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass p-8 rounded neon-border-purple transition-all group">
+                        <h3 class="font-bold text-white mb-2 uppercase">Network Security</h3>
+                        <p class="text-[10px] text-gray-500">Routing, Switching & Defensive Protocols</p>
+                    </div>
+                    <div class="glass p-8 rounded neon-border-purple transition-all group">
+                        <h3 class="font-bold text-white mb-2 uppercase">Escalation Mgmt</h3>
+                        <p class="text-[10px] text-gray-500">Tier 2 Incident Management & Technical Support</p>
+                    </div>
+                    <a href="javascript:void(0)" onclick="showSection('skills')" class="glass p-8 rounded border border-cyberpink/40 flex items-center justify-center hover:bg-cyberpink/10 transition-all group italic">
+                        <span class="mono text-cyberpink font-bold">SEE_ALL_SKILLS →</span>
+                    </a>
+                </div>
+            </div>
+
+        </section>
+        
         <footer-component></footer-component>
     </main>
 
-    <!-- SECTION PLACEHOLDERS -->
+    <!-- OTHER SECTIONS -->
     <section id="about" class="page-section pt-32 px-8 max-w-5xl mx-auto"><h2 class="text-4xl font-bold mono text-cyberpink mb-8">// About_Me</h2><footer-component></footer-component></section>
     <section id="projects" class="page-section pt-32 px-8 max-w-7xl mx-auto"><h2 class="text-4xl font-bold mono text-cyberpink mb-8">// Projects_Lab</h2><footer-component></footer-component></section>
     <section id="certificates" class="page-section pt-32 px-8 max-w-7xl mx-auto"><h2 class="text-4xl font-bold mono text-cyberpink mb-8">// Certificates_Log</h2><footer-component></footer-component></section>
@@ -142,13 +154,13 @@
     <section id="skills" class="page-section pt-32 px-8 max-w-7xl mx-auto"><h2 class="text-4xl font-bold mono text-cyberpink mb-8">// Skill_Matrix</h2><footer-component></footer-component></section>
     <section id="contacts" class="page-section pt-32 px-8 max-w-7xl mx-auto"><h2 class="text-4xl font-bold mono text-cyberpink mb-8">// Connect_Tunnel</h2><footer-component></footer-component></section>
 
-    <!-- REUSABLE FOOTER TEMPLATE -->
+    <!-- FOOTER TEMPLATE -->
     <template id="footer-template">
         <footer class="py-20 border-t border-cyberpurple/10 text-center mt-20">
             <div class="flex justify-center gap-8 mb-8 mono text-[10px] uppercase tracking-widest">
                 <a href="https://linkedin.com/in/jorgemorga" target="_blank" class="hover:text-cyberpink transition-all font-bold text-gray-400">[ LinkedIn ]</a>
                 <a href="https://github.com/jorgemorga89" target="_blank" class="hover:text-cyberpink transition-all font-bold text-gray-400">[ GitHub ]</a>
-                <a href="mailto:jorgemorga@example.com" class="hover:text-cyberpink transition-all font-bold text-gray-400">[ Email ]</a>
+                <a href="mailto:your-email@example.com" class="hover:text-cyberpink transition-all font-bold text-gray-400">[ Email ]</a>
             </div>
             <div class="mono text-[10px] text-gray-600 uppercase tracking-[0.5em] mb-4">System Status: Secure // Connection: Encrypted</div>
             <p class="text-[9px] text-gray-700 mono uppercase tracking-widest font-bold">© 2026 JORGE MORGA // DESIGNED FOR THE CYBER_SEC FRONTIER</p>
@@ -156,7 +168,6 @@
     </template>
 
     <script>
-        // Custom Element for Footer to avoid code repetition
         class FooterComponent extends HTMLElement {
             connectedCallback() {
                 const template = document.getElementById('footer-template').content;
