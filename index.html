@@ -1,226 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jorge Morga | Cybersecurity Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <title>CV Online | Jorge Morga</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        cyberblack: '#08080c',
+                        cyberblack: '#050509',
                         cyberpurple: '#8a2be2',
                         cyberpink: '#ff00ff',
-                        glass: 'rgba(255, 255, 255, 0.03)',
+                        cyberdark: '#10101a',
                     }
                 }
             }
         }
     </script>
     <style>
-        /* Mistura de Inter para leitura e Mono para detalhes técnicos */
-        body { font-family: 'Inter', sans-serif; background-color: #08080c; color: #e2e8f0; }
+        body { font-family: 'Inter', sans-serif; background-color: #050509; color: #c9d1d9; }
         .mono { font-family: 'JetBrains Mono', monospace; }
-        
-        .text-gradient {
-            background: linear-gradient(135deg, #fff 0%, #8a2be2 50%, #ff00ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .page-section { display: none; }
-        .page-section.active { display: block; animation: slideUp 0.5s ease-out; }
-
-        /* Estilo Moderno: Glassmorphism com cantos arredondados */
-        .modern-card {
-            background: rgba(15, 15, 25, 0.7);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 1.5rem; /* Bordas bem redondas e modernas */
-            transition: all 0.3s ease;
-        }
-
-        .modern-card:hover {
-            border-color: rgba(255, 0, 255, 0.5);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Navbar moderna e flutuante */
-        .nav-blur {
-            background: rgba(8, 8, 12, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 9999px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        .neon-text-purple { text-shadow: 0 0 10px rgba(138, 43, 226, 0.5); }
+        .border-gradient {
+            border-image: linear-gradient(to right, #8a2be2, #ff00ff) 1;
         }
     </style>
 </head>
-<body>
+<body class="p-4 md:p-10">
 
-    <!-- NAVBAR FLUTUANTE -->
-    <header class="fixed w-full top-6 z-50 px-6">
-        <nav class="max-w-5xl mx-auto nav-blur py-4 px-8 flex justify-between items-center shadow-2xl">
-            <a href="javascript:void(0)" onclick="showSection('home')" class="mono font-bold text-cyberpink tracking-tighter">JM_SYS v3.0</a>
-            <div class="hidden md:flex space-x-8 text-[11px] font-bold uppercase tracking-widest text-gray-400">
-                <a href="javascript:void(0)" onclick="showSection('about')" class="hover:text-white transition-colors">About</a>
-                <a href="javascript:void(0)" onclick="showSection('projects')" class="hover:text-white transition-colors">Projects</a>
-                <a href="javascript:void(0)" onclick="showSection('certificates')" class="hover:text-white transition-colors">Certs</a>
-                <a href="javascript:void(0)" onclick="showSection('badges')" class="hover:text-white transition-colors">Badges</a>
-                <a href="javascript:void(0)" onclick="showSection('contacts')" class="hover:text-white transition-colors">Contact</a>
-            </div>
-        </nav>
-    </header>
-
-    <!-- SECTION: HOME -->
-    <main id="home" class="page-section active min-h-screen flex flex-col justify-center">
-        <section class="text-center px-6">
-            <h1 class="text-6xl md:text-8xl font-black mb-6 tracking-tight">
-                <span id="scramble-runtime" class="text-gradient">JORGE MORGA</span>
-            </h1>
-            <p class="mono text-gray-400 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-                Tier 2 Technical Escalation Point <span class="text-cyberpurple">|</span> Aspiring SOC Analyst <br>
-                Especialista em infraestrutura e defesa de redes.
-            </p>
-            <div class="mt-12 flex flex-wrap justify-center gap-6">
-                <a href="javascript:void(0)" onclick="showSection('projects')" class="px-8 py-4 bg-cyberpurple hover:bg-cyberpink text-white font-bold rounded-full transition-all shadow-lg shadow-cyberpurple/20">
-                    View Labs
-                </a>
-                <a href="cv.html" class="px-8 py-4 border border-white/20 hover:border-cyberpink text-white font-bold rounded-full transition-all">
-                    Download CV
-                </a>
-            </div>
-        </section>
-        <footer-component></footer-component>
-    </main>
-
-    <!-- SECTION: ABOUT -->
-    <section id="about" class="page-section pt-32 px-6 max-w-5xl mx-auto">
-        <h2 class="text-4xl font-extrabold mb-10">// About</h2>
-        <div class="modern-card p-10 md:p-16">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6 text-gray-300 leading-loose text-lg">
-                    <p>Com um background sólido em <span class="text-white font-semibold">Suporte Técnico de Nível 2</span>, especializei-me em resolver o que outros não conseguem.</p>
-                    <p>O meu foco atual é a transição para <span class="text-cyberpink font-bold">Cybersecurity Analyst</span>, utilizando a minha experiência em redes para detetar e mitigar ameaças antes que se tornem incidentes.</p>
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="p-4 bg-white/5 rounded-2xl border border-white/5 text-center">
-                        <span class="block text-2xl font-bold text-cyberpurple">Tier 2</span>
-                        <span class="text-[10px] uppercase text-gray-500 mono">Escalation</span>
-                    </div>
-                    <div class="p-4 bg-white/5 rounded-2xl border border-white/5 text-center">
-                        <span class="block text-2xl font-bold text-cyberpink">20/20</span>
-                        <span class="text-[10px] uppercase text-gray-500 mono">PHP Score</span>
-                    </div>
+    <div class="max-w-4xl mx-auto bg-cyberdark/50 border border-cyberpurple/20 p-8 rounded-xl shadow-2xl">
+        
+        <!-- HEADER -->
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-cyberpurple/30 pb-8 mb-8">
+            <div>
+                <h1 class="text-4xl font-extrabold text-white tracking-tighter uppercase mb-2">
+                    Jorge Miguel <span class="text-cyberpink">Morga</span>
+                </h1>
+                <p class="mono text-cyberpurple font-bold">Support Specialist > Cybersecurity Enthusiast</p>
+                <div class="flex flex-wrap gap-4 mt-4 text-xs mono text-gray-400">
+                    <span class="flex items-center gap-1">📍 Recife, Brasil</span>
+                    <span class="flex items-center gap-1">📧 u320458712@gmail.com</span>
+                    <span class="flex items-center gap-1">📞 +55 81 9519-7593</span>
                 </div>
             </div>
-        </div>
-        <footer-component></footer-component>
-    </section>
+            <div class="mt-6 md:mt-0">
+                <a href="index.html" class="text-xs mono border border-cyberpink px-4 py-2 text-cyberpink hover:bg-cyberpink hover:text-black transition uppercase">Voltar ao Terminal</a>
+            </div>
+        </header>
 
-    <!-- SECTION: BADGES (Quadrados com Bordas Redondas) -->
-    <section id="badges" class="page-section pt-32 px-6 max-w-6xl mx-auto">
-        <h2 class="text-4xl font-extrabold mb-10">// Badges</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- GRID PRINCIPAL -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
             
-            <div class="modern-card aspect-square flex flex-col items-center justify-center p-8">
-                <div class="w-40 h-40 mb-6 relative">
-                    <img src="badges/Cisco_Networking_Basics.png" alt="Badge" class="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(138,43,226,0.3)]">
-                </div>
-                <h3 class="font-bold text-center text-sm uppercase tracking-widest">Networking Basics</h3>
-                <p class="mono text-[10px] text-gray-500 mt-2 italic">Cisco Verified</p>
+            <!-- COLUNA ESQUERDA (Skills & Certs) -->
+            <div class="space-y-8">
+                <section>
+                    <h2 class="text-cyberpink mono text-sm font-bold mb-4 uppercase">./certificações</h2>
+                    <ul class="space-y-4 text-sm">
+                        <li class="border-l-2 border-cyberpurple pl-3">
+                            <p class="text-white font-semibold">Networking Basics</p>
+                            <p class="text-xs text-gray-500 mono">Cisco Academy | 2026</p>
+                        </li>
+                        <li class="border-l-2 border-cyberpurple pl-3">
+                            <p class="text-white font-semibold">Intro to Cybersecurity</p>
+                            <p class="text-xs text-gray-500 mono">Cisco Academy | 2026</p>
+                        </li>
+                        <li class="border-l-2 border-cyberpurple pl-3">
+                            <p class="text-white font-semibold">PHP Programming (20/20)</p>
+                            <p class="text-xs text-gray-500 mono">CINEL | 2024</p>
+                        </li>
+                        <li class="border-l-2 border-cyberpurple pl-3">
+                            <p class="text-white font-semibold">EF SET English (C1)</p>
+                            <p class="text-xs text-gray-500 mono">Advanced Level | 2026</p>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="text-cyberpink mono text-sm font-bold mb-4 uppercase">./tech_stack</h2>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-cyberpurple/10 border border-cyberpurple/30 text-cyberpurple px-2 py-1 text-[10px] mono">TCP/IP</span>
+                        <span class="bg-cyberpurple/10 border border-cyberpurple/30 text-cyberpurple px-2 py-1 text-[10px] mono">PHP</span>
+                        <span class="bg-cyberpurple/10 border border-cyberpurple/30 text-cyberpurple px-2 py-1 text-[10px] mono">SAP/SAGE</span>
+                        <span class="bg-cyberpurple/10 border border-cyberpurple/30 text-cyberpurple px-2 py-1 text-[10px] mono">TIER_2_SUPPORT</span>
+                        <span class="bg-cyberpurple/10 border border-cyberpurple/30 text-cyberpurple px-2 py-1 text-[10px] mono">TROUBLESHOOTING</span>
+                    </div>
+                </section>
             </div>
 
-            <div class="modern-card aspect-square flex flex-col items-center justify-center p-8">
-                <div class="w-40 h-40 mb-6 relative">
-                    <img src="badges/Cisco_Intro_Cybersecurity.png" alt="Badge" class="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(255,0,255,0.3)]">
-                </div>
-                <h3 class="font-bold text-center text-sm uppercase tracking-widest">Intro to Cybersecurity</h3>
-                <p class="mono text-[10px] text-gray-500 mt-2 italic">Cisco Verified</p>
-            </div>
+            <!-- COLUNA DIREITA (Experiência) -->
+            <div class="md:col-span-2 space-y-10">
+                
+                <section>
+                    <h2 class="text-cyberpurple mono text-sm font-bold mb-6 uppercase tracking-widest border-b border-cyberpurple/10 pb-2">Experience_Log</h2>
+                    
+                    <div class="space-y-8">
+                        <!-- TP -->
+                        <div class="relative pl-4">
+                            <div class="absolute left-0 top-1 w-1 h-1 bg-cyberpink rounded-full"></div>
+                            <h3 class="text-lg font-bold text-white">Support Specialist (Tier 2) & Duty Manager</h3>
+                            <p class="mono text-xs text-cyberpink mb-2">Teleperformance / Microsoft Project | 2021 - 2023</p>
+                            <ul class="text-sm text-gray-400 space-y-1 list-disc list-inside">
+                                <li>Resolução técnica de alto nível (Tier 2) para incidentes críticos.</li>
+                                <li>Gestão de fluxo de tickets e coordenação de equipas internacionais.</li>
+                                <li>Especialista em suporte especializado para organizações Non-Profit.</li>
+                            </ul>
+                        </div>
 
+                        <!-- Anzol -->
+                        <div class="relative pl-4">
+                            <div class="absolute left-0 top-1 w-1 h-1 bg-cyberpurple rounded-full"></div>
+                            <h3 class="text-lg font-bold text-white">Managing Partner</h3>
+                            <p class="mono text-xs text-cyberpurple mb-2">AnzolPrata, Lda. | 2019 - 2021</p>
+                            <p class="text-sm text-gray-400">Gestão de operações, logística e conformidade legal, com foco na otimização de processos e satisfação do cliente.</p>
+                        </div>
+
+                        <!-- TBFILES -->
+                        <div class="relative pl-4">
+                            <div class="absolute left-0 top-1 w-1 h-1 bg-cyberpurple rounded-full"></div>
+                            <h3 class="text-lg font-bold text-white">Indexer & Document Specialist</h3>
+                            <p class="mono text-xs text-cyberpurple mb-2">TBFiles, S.A. | 2017 - 2019</p>
+                            <p class="text-sm text-gray-400">Catalogação e indexação digital de fluxos de dados massivos (>10k/mês) com erro zero.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-cyberpurple mono text-sm font-bold mb-4 uppercase tracking-widest">Education</h2>
+                    <div class="text-sm text-gray-400">
+                        <p class="text-white font-semibold italic">Secundário (12º Ano)</p>
+                        <p class="mono text-xs">Escola Rainha Dona Leonor, Lisboa</p>
+                    </div>
+                </section>
+
+            </div>
         </div>
-        <footer-component></footer-component>
-    </section>
 
-    <!-- SECTION: CERTIFICATES -->
-    <section id="certificates" class="page-section pt-32 px-6 max-w-5xl mx-auto">
-        <h2 class="text-4xl font-extrabold mb-10">// Certificates</h2>
-        <div class="space-y-4">
-            <div class="modern-card p-6 flex flex-wrap justify-between items-center group">
-                <div>
-                    <h3 class="text-white font-bold text-lg">Advanced PHP Development</h3>
-                    <p class="text-sm text-gray-500">CINEL - Specialized Training</p>
-                </div>
-                <a href="certificates/Cinel_PHP.pdf" target="_blank" class="mt-4 md:mt-0 px-6 py-2 border border-cyberpink/30 hover:bg-cyberpink hover:text-white rounded-full transition-all text-xs font-bold uppercase mono">Verify_PDF</a>
-            </div>
-            <!-- Mais certificados aqui -->
-        </div>
-        <footer-component></footer-component>
-    </section>
-
-    <!-- CONTACTS -->
-    <section id="contacts" class="page-section pt-32 px-6 max-w-4xl mx-auto text-center">
-        <h2 class="text-4xl font-extrabold mb-10">Get In Touch</h2>
-        <div class="modern-card p-12">
-            <p class="text-xl text-gray-400 mb-8">Estou disponível para novos desafios em Cybersecurity e Cloud.</p>
-            <div class="flex justify-center gap-6">
-                <a href="https://linkedin.com/in/jorgemorga" class="p-4 bg-white/5 rounded-full hover:bg-cyberpurple transition-all">
-                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" class="w-6 h-6 invert" alt="Linkedin">
-                </a>
-                <a href="mailto:jorge.morga@email.com" class="p-4 bg-white/5 rounded-full hover:bg-cyberpink transition-all">
-                    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" class="w-6 h-6 invert" alt="Email">
-                </a>
-            </div>
-        </div>
-        <footer-component></footer-component>
-    </section>
-
-    <!-- FOOTER -->
-    <template id="footer-template">
-        <footer class="py-20 text-center text-gray-600 text-[10px] mono uppercase tracking-[0.4em]">
-            &copy; 2026 Jorge Morga // Security Analyst Portal
+        <!-- FOOTER CV -->
+        <footer class="mt-12 pt-8 border-t border-cyberpurple/20 text-center">
+            <p class="mono text-[10px] text-gray-600 uppercase tracking-[0.3em]">Authorized Access Only // Jorge Morga Resume v2.0</p>
         </footer>
-    </template>
 
-    <script>
-        class FooterComponent extends HTMLElement {
-            connectedCallback() {
-                const template = document.getElementById('footer-template').content;
-                this.appendChild(template.cloneNode(true));
-            }
-        }
-        customElements.define('footer-component', FooterComponent);
+    </div>
 
-        function showSection(sectionId) {
-            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
-            const target = document.getElementById(sectionId);
-            if(target) target.classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Simples animação de entrada do nome
-        const scrambleElement = document.getElementById('scramble-runtime');
-        const finalString = "JORGE MORGA";
-        const characters = "ABCDEF0123456789";
-        let frame = 0;
-        function animateText() {
-            let output = "";
-            for (let i = 0; i < finalString.length; i++) {
-                if (i < frame / 3) output += finalString[i];
-                else output += characters[Math.floor(Math.random() * characters.length)];
-            }
-            scrambleElement.innerText = output;
-            if (frame / 3 < finalString.length) { frame++; requestAnimationFrame(animateText); }
-        }
-        setTimeout(animateText, 500);
-    </script>
 </body>
 </html>
