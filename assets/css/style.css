@@ -1,1 +1,49 @@
+/* =============================================
+   Cyberpunk Portfolio - Style Sheet
+   ============================================= */
 
+:root {
+    --cyber-black: #050509;
+    --cyber-dark: #10101a;
+    --cyber-purple: #5A2EFF;
+    --cyber-pink: #FF00AA;
+    --cyber-cyan: #00f5ff;
+    --text-light: #c9d1d9;
+    --text-gray: #8b949e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--cyber-black);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Tipografia Tech */
+h1, h2, h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+}
+
+/* Navbar e layout geral será definido depois */
+
+.card {
+    background-color: var(--cyber-dark);
+    border: 1px solid rgba(90, 46, 255, 0.3);
+    border-radius: 12px;
+    padding: 24px;
+    transition: all 0.4s ease;
+}
+
+.card:hover {
+    border-color: var(--cyber-purple);
+    box-shadow: 0 0 20px rgba(90, 46, 255, 0.25);
+    transform: translateY(-4px);
+}
