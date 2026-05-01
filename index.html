@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jorge Morga | Cyber Portfolio</title>
+    
+    <!-- Fontes: Inter e JetBrains Mono -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -27,10 +30,11 @@
         }
     </script>
     <style>
-        body { background-color: #050509; color: #f0f0f0; scroll-behavior: smooth; }
+        body { background-color: #050509; color: #f0f0f0; overflow-x: hidden; }
         
+        /* Navbar Blur */
         .nav-blur {
-            background: rgba(5, 5, 9, 0.6);
+            background: rgba(5, 5, 9, 0.7);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
         }
@@ -41,172 +45,194 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .glass {
-            background: rgba(16, 16, 26, 0.6);
+        /* Cards Quadrados Grandes com Cantos Redondos */
+        .modern-card {
+            background: rgba(16, 16, 26, 0.8);
             border: 2px solid rgba(90, 46, 255, 0.1);
+            border-radius: 2rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .modern-card:hover {
+            border-color: #FF00AA;
+            border-width: 4px;
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(255, 0, 170, 0.15);
+        }
+
+        .page-section { display: none; }
+        .page-section.active { display: block; animation: sectionFade 0.6s ease; }
+
+        @keyframes sectionFade {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Badges Gray to Color */
+        .badge-logic { filter: grayscale(1); transition: 0.5s ease; opacity: 0.7; }
+        .badge-logic:hover { filter: grayscale(0); opacity: 1; transform: scale(1.1); }
+
+        .btn-main {
+            padding: 1rem 2.5rem;
+            border-radius: 9999px;
+            font-family: 'JetBrains Mono';
+            font-weight: 800;
             transition: all 0.3s ease;
         }
-
-        .glass:hover {
-            border-color: #FF00AA;
-            transform: translateY(-5px);
-            box-shadow: 0 0 25px rgba(255, 0, 170, 0.2);
-        }
-
-        .page-section { display: none; min-height: 100vh; }
-        .page-section.active { display: block; animation: fadeIn 0.5s ease; }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        .badge-gray { filter: grayscale(1); transition: all 0.4s ease; }
-        .badge-gray:hover { filter: grayscale(0); transform: scale(1.1); }
-
-        .scramble-txt { font-family: 'JetBrains Mono', monospace; }
     </style>
 </head>
-<body class="font-sans">
+<body>
 
     <!-- NAVBAR -->
-    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-white/5 py-4 px-8 flex justify-between items-center">
-        <a href="javascript:void(0)" onclick="navigateTo('home')" class="font-mono font-extrabold text-offwhite hover:text-cybermagenta transition text-sm">
+    <nav class="fixed top-0 w-full z-[100] nav-blur border-b border-white/5 py-5 px-10 flex justify-between items-center font-mono">
+        <a href="javascript:void(0)" onclick="navigateTo('home')" class="text-offwhite font-extrabold text-sm hover:text-cybermagenta transition uppercase tracking-tighter">
             // HOME
         </a>
-        <div class="hidden md:flex space-x-6 font-mono font-extrabold text-offwhite text-[12px] tracking-widest">
-            <a href="javascript:void(0)" onclick="navigateTo('about')" class="hover:text-cyberindigo transition">// ABOUT</a>
-            <a href="javascript:void(0)" onclick="navigateTo('projects-full')" class="hover:text-cyberindigo transition">// PROJECTS</a>
-            <a href="javascript:void(0)" onclick="navigateTo('certs')" class="hover:text-cyberindigo transition">// CERT</a>
-            <a href="javascript:void(0)" onclick="navigateTo('badges')" class="hover:text-cyberindigo transition">// BADGES</a>
-            <a href="javascript:void(0)" onclick="navigateTo('skills')" class="hover:text-cyberindigo transition">// SKILLS</a>
-            <a href="javascript:void(0)" onclick="navigateTo('contacts')" class="hover:text-cyberindigo transition">// CONTACTS</a>
+        <div class="hidden md:flex space-x-8 font-extrabold text-[11px] tracking-widest">
+            <a href="javascript:void(0)" onclick="navigateTo('about')" class="text-offwhite hover:text-cyberindigo transition">// ABOUT</a>
+            <a href="javascript:void(0)" onclick="navigateTo('projects-page')" class="text-offwhite hover:text-cyberindigo transition">// PROJECTS</a>
+            <a href="javascript:void(0)" onclick="navigateTo('certs-page')" class="text-offwhite hover:text-cyberindigo transition">// CERT</a>
+            <a href="javascript:void(0)" onclick="navigateTo('badges-page')" class="text-offwhite hover:text-cyberindigo transition">// BADGES</a>
+            <a href="javascript:void(0)" onclick="navigateTo('skills-page')" class="text-offwhite hover:text-cyberindigo transition">// SKILLS</a>
+            <a href="javascript:void(0)" onclick="navigateTo('contacts-page')" class="text-offwhite hover:text-cyberindigo transition">// CONTACTS</a>
         </div>
     </nav>
 
-    <!-- SECTION: HOME (PÁGINA PRINCIPAL) -->
-    <div id="home" class="page-section active">
-        <!-- Hero -->
-        <section class="h-screen flex flex-col justify-center items-center text-center px-4">
-            <h1 id="main-name" class="text-6xl md:text-8xl font-black text-gradient mb-4 uppercase tracking-tighter scramble-txt">
-                JORGE MORGA
-            </h1>
-            <p class="font-mono text-offwhite text-sm md:text-lg mb-10 tracking-widest opacity-80 uppercase">
-                Aspiring SOC Analyst | BLUE Team | Threat Intel
-            </p>
-            <div class="flex space-x-6">
-                <button onclick="navigateTo('projects-full')" class="bg-cyberindigo hover:bg-cybermagenta text-white font-mono font-bold py-4 px-8 rounded-full transition-all shadow-lg">
-                    ./PROJECTS
-                </button>
-                <a href="assets/cv_jorge_morga.pdf" target="_blank" class="border border-white/20 hover:border-cybermagenta text-white font-mono font-bold py-4 px-8 rounded-full transition-all">
-                    GET_CV
-                </a>
-            </div>
-        </section>
+    <!-- MAIN APP WRAPPER -->
+    <main>
 
-        <!-- Recent Projects (Fundo Cyberdark) -->
-        <section class="bg-cyberdark py-24 px-8">
-            <div class="max-w-7xl mx-auto">
-                <h2 class="text-3xl font-mono font-bold mb-12 text-cybermagenta border-l-4 border-cybermagenta pl-4 uppercase tracking-widest">./Recent_Projects</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Project Card 1 -->
-                    <div class="glass p-8 rounded-2xl flex flex-col justify-between aspect-square group">
-                        <div>
-                            <span class="text-cyberindigo font-mono text-[10px] uppercase">Network_Security</span>
-                            <h3 class="text-2xl font-bold mt-4 group-hover:text-cybermagenta transition">IDS Snort Ruleset</h3>
-                            <p class="text-gray-400 text-sm mt-4">Personalização de regras Snort para detecção de scanners silenciosos.</p>
+        <!-- PÁGINA PRINCIPAL (Scrollable) -->
+        <div id="home" class="page-section active">
+            <!-- Hero -->
+            <section class="h-screen flex flex-col justify-center items-center text-center px-6">
+                <h1 id="scramble-name" class="text-7xl md:text-9xl font-black text-gradient mb-6 uppercase tracking-tighter font-mono">
+                    JORGE MORGA
+                </h1>
+                <p class="font-mono text-offwhite text-sm md:text-xl mb-12 tracking-widest font-bold">
+                    Aspiring SOC Analyst | BLUE Team | Threat Intel
+                </p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <button onclick="navigateTo('projects-page')" class="btn-main bg-cyberindigo text-white hover:bg-cybermagenta shadow-lg shadow-cyberindigo/20">
+                        ./PROJECTS
+                    </button>
+                    <a href="assets/cv.pdf" class="btn-main border-2 border-white/20 text-offwhite hover:border-cybermagenta">
+                        VIEW_CV
+                    </a>
+                </div>
+            </section>
+
+            <!-- Seção Recentes (Cyberdark) -->
+            <section class="bg-cyberdark py-32 px-8">
+                <div class="max-w-7xl mx-auto">
+                    <h2 class="text-4xl font-mono font-bold mb-16 text-cybermagenta border-b-4 border-cybermagenta/20 pb-4 inline-block">./recent_projects</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                        <!-- Card 1 -->
+                        <div class="modern-card p-10 flex flex-col justify-between aspect-square group">
+                            <div>
+                                <span class="text-cyberindigo font-mono text-xs font-bold uppercase tracking-widest">Network_Traffic</span>
+                                <h3 class="text-3xl font-bold mt-6 group-hover:text-cybermagenta transition">IDS Snort Ruleset</h3>
+                                <p class="text-gray-400 mt-6 leading-relaxed">Deteção de técnicas de exfiltração de dados em tempo real.</p>
+                            </div>
+                            <div class="flex gap-3 pt-6 border-t border-white/5">
+                                <span class="bg-cyberblack border border-cyberindigo/30 text-cyberindigo text-[10px] px-4 py-1 rounded-full font-mono font-bold">SNORT</span>
+                            </div>
                         </div>
-                        <div class="flex gap-2">
-                            <span class="bg-cyberblack border border-white/10 text-[10px] px-3 py-1 rounded-full font-mono uppercase">Snort</span>
+                        <!-- Card Link -->
+                        <div onclick="navigateTo('projects-page')" class="modern-card p-10 flex flex-col justify-center items-center aspect-square group cursor-pointer border-dashed border-white/20">
+                            <span class="text-cybermagenta font-mono font-bold text-xl group-hover:scale-110 transition uppercase tracking-widest">See All Projects ↗</span>
                         </div>
                     </div>
-                    <!-- Link to more -->
-                    <div onclick="navigateTo('projects-full')" class="glass p-8 rounded-2xl flex flex-col justify-center items-center cursor-pointer group aspect-square">
-                        <span class="text-cybermagenta font-mono text-xl group-hover:scale-110 transition">SEE_ALL_PROJECTS ↗</span>
+                </div>
+            </section>
+        </div>
+
+        <!-- SEÇÕES INDIVIDUAIS -->
+        
+        <!-- ABOUT -->
+        <section id="about" class="page-section pt-40 px-8 max-w-6xl mx-auto">
+            <h2 class="text-5xl font-mono font-bold text-cyberindigo mb-16 uppercase tracking-tighter">// ABOUT_ME</h2>
+            <div class="modern-card p-12 bg-cyberdark flex flex-col md:flex-row gap-16 items-center">
+                <img src="assets/perfil.jpg" class="w-80 h-80 rounded-3xl object-cover border-4 border-cyberindigo shadow-2xl" alt="Jorge Morga">
+                <div class="font-sans text-xl text-cybergray leading-relaxed">
+                    <p>Profissional focado em defesa digital e resposta a incidentes. Com background em infraestrutura, transito agora para o núcleo da cibersegurança...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS FULL -->
+        <section id="projects-page" class="page-section pt-40 px-8 max-w-7xl mx-auto">
+            <h2 class="text-5xl font-mono font-bold text-cybermagenta mb-16 uppercase tracking-tighter">// PROJECTS_LAB</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="modern-card p-10 flex flex-col justify-between aspect-square">
+                    <div>
+                        <h3 class="text-3xl font-bold">Vuln_Scout Python</h3>
+                        <p class="text-gray-400 mt-6 font-sans">Cruzamento de resultados Nmap com APIs de vulnerabilidades.</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="bg-cyberindigo/20 text-cyberindigo px-4 py-1 rounded-full font-mono text-[10px] font-bold">PYTHON</span>
+                        <a href="#" class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center hover:bg-cybermagenta transition">GIT</a>
                     </div>
                 </div>
             </div>
         </section>
-    </div>
 
-    <!-- SECTION: ABOUT -->
-    <div id="about" class="page-section">
-        <section class="pt-32 px-8 max-w-6xl mx-auto">
-            <h2 class="text-4xl font-mono font-bold text-cyberindigo mb-12 uppercase">// ABOUT_ME</h2>
-            <div class="glass p-12 rounded-3xl grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-cyberdark">
-                <div>
-                    <p class="text-lg text-gray-300 leading-relaxed font-sans">
-                        Profissional dedicado à segurança defensiva... [Seu texto aqui]
-                    </p>
-                </div>
-                <div class="flex justify-center">
-                    <img src="assets/perfil.jpg" alt="Jorge Morga" class="rounded-2xl border-2 border-cyberindigo w-64 h-64 object-cover shadow-2xl">
+        <!-- BADGES -->
+        <section id="badges-page" class="page-section pt-40 px-8 max-w-7xl mx-auto">
+            <h2 class="text-5xl font-mono font-bold text-cyberindigo mb-16 uppercase tracking-tighter">// BADGES_VAULT</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+                <div class="modern-card aspect-square flex flex-col items-center justify-center p-8 group">
+                    <img src="assets/cisco_badge.png" class="w-32 h-32 badge-logic mb-6" alt="Badge">
+                    <span class="font-mono text-[10px] text-gray-500 font-bold uppercase">Jan 2024</span>
+                    <h4 class="font-bold text-sm mt-2 text-center">NETWORKING BASICS</h4>
                 </div>
             </div>
         </section>
-    </div>
 
-    <!-- SECTION: CERTIFICATES -->
-    <div id="certs" class="page-section">
-        <section class="pt-32 px-8 max-w-7xl mx-auto">
-            <h2 class="text-4xl font-mono font-bold text-cybermagenta mb-12 uppercase">// CERTIFICATES</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="glass p-8 rounded-2xl aspect-square flex flex-col justify-between">
-                    <h3 class="text-xl font-bold">Introduction to Cybersecurity</h3>
-                    <p class="text-sm text-gray-400">Cisco Networking Academy</p>
-                    <a href="assets/cert1.pdf" download class="bg-cyberindigo text-white text-center py-3 rounded-xl font-mono font-bold hover:bg-cybermagenta transition">DOWNLOAD_PDF</a>
-                </div>
-            </div>
-        </section>
-    </div>
+    </main>
 
-    <!-- RODAPÉ -->
-    <footer class="bg-cyberblack border-t border-white/5 py-16 px-8 mt-20 text-center">
-        <div class="font-mono text-[10px] tracking-[0.5em] text-gray-500 mb-6 uppercase">
+    <!-- FOOTER -->
+    <footer class="mt-40 border-t border-white/5 bg-cyberblack py-20 px-8 text-center font-mono">
+        <div class="text-[10px] tracking-[0.6em] text-gray-500 mb-8 uppercase">
             System Status: <span class="text-green-500">Secure</span> // Connection: <span class="text-green-500">Encrypted</span>
         </div>
-        <div class="flex justify-center space-x-12 font-mono font-bold text-sm mb-10">
-            <a href="#" class="hover:text-cyberindigo transition">[ LinkedIn ]</a>
-            <a href="#" class="hover:text-cybermagenta transition">[ GitHub ]</a>
-            <a href="#" class="hover:text-cyberindigo transition">[ Email ]</a>
+        <div class="flex justify-center gap-12 text-sm font-extrabold mb-12">
+            <a href="#" class="text-offwhite hover:text-cyberindigo transition">[ LinkedIn ]</a>
+            <a href="#" class="text-offwhite hover:text-cybermagenta transition">[ GitHub ]</a>
+            <a href="#" class="text-offwhite hover:text-cyberindigo transition">[ Email ]</a>
         </div>
-        <p class="text-xs text-gray-700 font-mono tracking-widest">
+        <p class="text-[9px] text-gray-700 tracking-[0.4em] uppercase font-bold">
             © 2026 JORGE MORGA // DESIGNED FOR THE CYBER_SEC FRONTIER
         </p>
     </footer>
 
     <script>
         // Sistema de Navegação SPA
-        function navigateTo(sectionId) {
-            document.querySelectorAll('.page-section').forEach(sec => {
-                sec.classList.remove('active');
-            });
-            document.getElementById(sectionId).classList.add('active');
-            window.scrollTo(0, 0);
+        function navigateTo(id) {
+            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+            const target = document.getElementById(id);
+            if(target) target.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             
-            if(sectionId === 'home') {
-                scrambleText('main-name', 'JORGE MORGA');
-            }
+            if(id === 'home') scramble('scramble-name', 'JORGE MORGA');
         }
 
-        // Efeito Scramble
-        function scrambleText(id, targetText) {
+        // Efeito Scramble Técnico
+        function scramble(id, text) {
             const el = document.getElementById(id);
-            const chars = '!<>-_\\/[]{}—=+*^?#________';
+            const chars = "ABCDEFGHIJKLMN0123456789#%&/_";
             let iteration = 0;
-            
             const interval = setInterval(() => {
-                el.innerText = targetText.split("")
-                    .map((letter, index) => {
-                        if(index < iteration) return targetText[index];
-                        return chars[Math.floor(Math.random() * chars.length)];
-                    })
-                    .join("");
-                
-                if(iteration >= targetText.length) clearInterval(interval);
-                iteration += 1 / 3;
-            }, 30);
+                el.innerText = text.split("").map((letter, index) => {
+                    if(index < iteration) return text[index];
+                    return chars[Math.floor(Math.random() * chars.length)];
+                }).join("");
+                if(iteration >= text.length) clearInterval(interval);
+                iteration += 1/3;
+            }, 40);
         }
 
-        // Inicia o efeito no load
-        window.onload = () => scrambleText('main-name', 'JORGE MORGA');
+        // Init
+        window.onload = () => scramble('scramble-name', 'JORGE MORGA');
     </script>
 </body>
 </html>
