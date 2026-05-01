@@ -1,12 +1,11 @@
-/* Cyberpunk Portfolio - Style */
+/* Cyberpunk Portfolio - Basic Styles */
+
 :root {
-    --cyber-black: #050509;
-    --cyber-dark: #10101a;
-    --cyber-indigo: #5A2EFF;
-    --cyber-magenta: #FF00AA;
-    --cyber-cyan: #00f5ff;
+    --cyberblack: #050509;
+    --cyberdark: #10101a;
+    --cyberindigo: #5A2EFF;
+    --cybermagenta: #FF00AA;
     --text-light: #c9d1d9;
-    --text-gray: #8b949e;
 }
 
 * {
@@ -16,94 +15,79 @@
 }
 
 body {
-    font-family: 'Inter', system-ui, sans-serif;
-    background-color: var(--cyber-black);
+    background-color: var(--cyberblack);
     color: var(--text-light);
+    font-family: 'Inter', system-ui, sans-serif;
     line-height: 1.6;
-    padding: 0;
+    padding-top: 80px; /* espaço para navbar fixa */
 }
 
-/* Cabeçalho */
-header {
-    text-align: center;
-    padding: 80px 20px 60px;
-    background: linear-gradient(to bottom, #0a0a0f, #050509);
+/* Navbar Top */
+.top-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(5, 5, 9, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(90, 46, 255, 0.3);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    font-family: 'JetBrains Mono', monospace;
 }
 
+.top-navbar a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.top-navbar a:hover {
+    color: var(--cybermagenta);
+}
+
+/* Conteúdo Principal */
+.content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Cards */
+.card {
+    background: var(--cyberdark);
+    border: 1px solid rgba(90, 46, 255, 0.3);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 32px;
+    transition: all 0.4s ease;
+}
+
+.card:hover {
+    border-color: var(--cybermagenta);
+    transform: translateY(-6px);
+}
+
+/* Títulos */
 h1 {
     font-family: 'JetBrains Mono', monospace;
     font-size: 3.5rem;
     font-weight: 700;
-    color: var(--cyber-indigo);
-    letter-spacing: 4px;
+    color: var(--cyberindigo);
     margin-bottom: 12px;
 }
 
 .tagline {
     font-size: 1.4rem;
     color: #94a3b8;
-    margin-bottom: 8px;
 }
 
 .subtag {
+    color: var(--cybermagenta);
     font-family: 'JetBrains Mono', monospace;
-    color: var(--cyber-magenta);
     font-size: 1.1rem;
-    letter-spacing: 2px;
-}
-
-/* Navbar Top */
-.top-navbar {
-    background: rgba(16, 16, 26, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 18px 40px;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    border-bottom: 1px solid rgba(90, 46, 255, 0.3);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.top-navbar a {
-    color: var(--text-light);
-    text-decoration: none;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1rem;
-    transition: color 0.3s;
-}
-
-.top-navbar a:hover {
-    color: var(--cyber-indigo);
-}
-
-/* Conteúdo */
-.content {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-.card {
-    background: var(--cyber-dark);
-    border: 1px solid rgba(90, 46, 255, 0.25);
-    border-radius: 12px;
-    padding: 28px;
-    margin-bottom: 30px;
-    transition: all 0.4s;
-}
-
-.card:hover {
-    border-color: var(--cyber-indigo);
-    box-shadow: 0 0 20px rgba(90, 46, 255, 0.2);
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-    .top-navbar {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px;
-    }
 }
