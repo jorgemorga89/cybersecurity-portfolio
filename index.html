@@ -4,267 +4,189 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jorge Morga | Cybersecurity Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        cyberblack: '#050509',
+                        cyberblack: '#08080c',
                         cyberpurple: '#8a2be2',
                         cyberpink: '#ff00ff',
-                        cyberdark: '#10101a',
+                        glass: 'rgba(255, 255, 255, 0.03)',
                     }
                 }
             }
         }
     </script>
     <style>
+        /* Mistura de Inter para leitura e Mono para detalhes técnicos */
+        body { font-family: 'Inter', sans-serif; background-color: #08080c; color: #e2e8f0; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        
         .text-gradient {
-            background: linear-gradient(90deg, #8a2be2, #ff00ff);
+            background: linear-gradient(135deg, #fff 0%, #8a2be2 50%, #ff00ff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .page-section { display: none; }
-        .page-section.active { display: block; animation: fadeIn 0.6s ease-out; }
-        .glass { background: rgba(16, 16, 26, 0.6); backdrop-filter: blur(10px); }
-        .mono { font-family: 'JetBrains Mono', monospace; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+        .page-section.active { display: block; animation: slideUp 0.5s ease-out; }
+
+        /* Estilo Moderno: Glassmorphism com cantos arredondados */
+        .modern-card {
+            background: rgba(15, 15, 25, 0.7);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem; /* Bordas bem redondas e modernas */
+            transition: all 0.3s ease;
+        }
+
+        .modern-card:hover {
+            border-color: rgba(255, 0, 255, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Navbar moderna e flutuante */
+        .nav-blur {
+            background: rgba(8, 8, 12, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
     </style>
 </head>
-<body class="bg-cyberblack text-gray-300 overflow-x-hidden">
+<body>
 
-    <!-- NAVBAR -->
-    <nav class="fixed w-full z-50 glass py-4 px-8 flex justify-between items-center border-b border-cyberpink/10">
-        <a href="javascript:void(0)" onclick="showSection('home')" class="flex items-center group">
-            <span class="mono text-white font-bold text-[10px] uppercase tracking-widest hover:text-cyberpink transition-all">
-                // HOME
-            </span>
-        </a>
-
-        <div class="space-x-6 hidden md:flex mono text-[10px] uppercase tracking-widest font-bold">
-            <a href="javascript:void(0)" onclick="showSection('about')" class="hover:text-cyberpink transition-all">// About</a>
-            <a href="javascript:void(0)" onclick="showSection('projects')" class="hover:text-cyberpink transition-all">// Projects</a>
-            <a href="javascript:void(0)" onclick="showSection('certificates')" class="hover:text-cyberpink transition-all">// Certificates</a>
-            <a href="javascript:void(0)" onclick="showSection('badges')" class="hover:text-cyberpink transition-all">// Badges</a>
-            <a href="javascript:void(0)" onclick="showSection('skills')" class="hover:text-cyberpink transition-all">// Skills</a>
-            <a href="javascript:void(0)" onclick="showSection('contacts')" class="hover:text-cyberpink transition-all">// Contacts</a>
-        </div>
-    </nav>
+    <!-- NAVBAR FLUTUANTE -->
+    <header class="fixed w-full top-6 z-50 px-6">
+        <nav class="max-w-5xl mx-auto nav-blur py-4 px-8 flex justify-between items-center shadow-2xl">
+            <a href="javascript:void(0)" onclick="showSection('home')" class="mono font-bold text-cyberpink tracking-tighter">JM_SYS v3.0</a>
+            <div class="hidden md:flex space-x-8 text-[11px] font-bold uppercase tracking-widest text-gray-400">
+                <a href="javascript:void(0)" onclick="showSection('about')" class="hover:text-white transition-colors">About</a>
+                <a href="javascript:void(0)" onclick="showSection('projects')" class="hover:text-white transition-colors">Projects</a>
+                <a href="javascript:void(0)" onclick="showSection('certificates')" class="hover:text-white transition-colors">Certs</a>
+                <a href="javascript:void(0)" onclick="showSection('badges')" class="hover:text-white transition-colors">Badges</a>
+                <a href="javascript:void(0)" onclick="showSection('contacts')" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </nav>
+    </header>
 
     <!-- SECTION: HOME -->
-    <main id="home" class="page-section active">
-        <section class="h-screen flex flex-col justify-center items-center text-center px-4">
-            <h1 class="text-6xl md:text-8xl font-extrabold uppercase mono tracking-tight">
-                <span id="scramble-runtime" class="text-gradient"></span>
+    <main id="home" class="page-section active min-h-screen flex flex-col justify-center">
+        <section class="text-center px-6">
+            <h1 class="text-6xl md:text-8xl font-black mb-6 tracking-tight">
+                <span id="scramble-runtime" class="text-gradient">JORGE MORGA</span>
             </h1>
-            <p class="mono text-xs text-white mt-10 tracking-[0.4em] uppercase font-bold opacity-90">
-                > Tier 2 Technical Escalation Point | Aspiring SOC Analyst
+            <p class="mono text-gray-400 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+                Tier 2 Technical Escalation Point <span class="text-cyberpurple">|</span> Aspiring SOC Analyst <br>
+                Especialista em infraestrutura e defesa de redes.
             </p>
-            <div class="mt-20 flex flex-col md:flex-row gap-8">
-                <a href="javascript:void(0)" onclick="showSection('projects')" 
-                   class="bg-cyberpurple hover:bg-cyberpurple/80 text-white px-10 py-4 rounded-sm font-bold transition-all mono text-xs tracking-widest shadow-lg shadow-cyberpurple/20">
-                    ./LABS_PROJECTS
+            <div class="mt-12 flex flex-wrap justify-center gap-6">
+                <a href="javascript:void(0)" onclick="showSection('projects')" class="px-8 py-4 bg-cyberpurple hover:bg-cyberpink text-white font-bold rounded-full transition-all shadow-lg shadow-cyberpurple/20">
+                    View Labs
                 </a>
-                <a href="cv.html" 
-                   class="border border-cyberpink text-cyberpink hover:bg-cyberpink hover:text-black px-10 py-4 rounded-sm font-bold transition-all mono text-xs tracking-widest shadow-lg shadow-cyberpink/20">
-                    ACCESS_CV
+                <a href="cv.html" class="px-8 py-4 border border-white/20 hover:border-cyberpink text-white font-bold rounded-full transition-all">
+                    Download CV
                 </a>
-            </div>
-        </section>
-
-        <!-- PREVIEW AREA -->
-        <section class="py-24 px-8 max-w-7xl mx-auto space-y-32">
-            <div>
-                <h2 class="mono text-cyberpink mb-10 text-xl font-bold">// Recent_Projects</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="glass p-8 border border-white/5 rounded transition-all group">
-                        <h3 class="font-bold text-white mb-2 uppercase">Snort IDS Lab</h3>
-                        <p class="text-[10px] text-gray-500 leading-relaxed">Network traffic analysis and intrusion detection logs.</p>
-                    </div>
-                    <div class="glass p-8 border border-white/5 rounded transition-all group">
-                        <h3 class="font-bold text-white mb-2 uppercase">Python Port Scanner</h3>
-                        <p class="text-[10px] text-gray-500 leading-relaxed">Automated security scanning and reconnaissance tool.</p>
-                    </div>
-                    <a href="javascript:void(0)" onclick="showSection('projects')" class="glass p-8 rounded border border-cyberpink/40 flex items-center justify-center hover:bg-cyberpink/10 transition-all group italic">
-                        <span class="mono text-cyberpink font-bold">SEE_ALL_PROJECTS →</span>
-                    </a>
-                </div>
             </div>
         </section>
         <footer-component></footer-component>
     </main>
 
     <!-- SECTION: ABOUT -->
-    <section id="about" class="page-section pt-32 px-8 max-w-5xl mx-auto">
-        <h2 class="text-4xl font-bold mono text-cyberpink mb-10 tracking-tighter">// About_Me</h2>
-        <div class="glass p-10 border border-cyberpurple/20 rounded-sm relative overflow-hidden">
-            <div class="absolute top-0 right-0 p-4 mono text-[8px] text-cyberpurple/30 uppercase tracking-[0.5em]">Auth_Status: Verified</div>
-            <div class="space-y-8 mono text-sm leading-relaxed">
-                <p class="text-gray-400">
-                    <span class="text-white font-bold tracking-widest">[ SUMMARY ]</span><br>
-                    Junior Cybersecurity Analyst and current <span class="text-cyberpurple font-bold">Tier 2 Technical Escalation Point</span>. I bridge the gap between complex technical troubleshooting and proactive digital defense.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
-                    <div class="border-l-2 border-cyberpink/30 pl-4">
-                        <span class="text-white font-bold block mb-2 uppercase tracking-widest">Current_Focus</span>
-                        <p class="text-gray-500 text-xs italic">SOC Operations, Network Security, and Threat Hunting Labs.</p>
+    <section id="about" class="page-section pt-32 px-6 max-w-5xl mx-auto">
+        <h2 class="text-4xl font-extrabold mb-10">// About</h2>
+        <div class="modern-card p-10 md:p-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-gray-300 leading-loose text-lg">
+                    <p>Com um background sólido em <span class="text-white font-semibold">Suporte Técnico de Nível 2</span>, especializei-me em resolver o que outros não conseguem.</p>
+                    <p>O meu foco atual é a transição para <span class="text-cyberpink font-bold">Cybersecurity Analyst</span>, utilizando a minha experiência em redes para detetar e mitigar ameaças antes que se tornem incidentes.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-4 bg-white/5 rounded-2xl border border-white/5 text-center">
+                        <span class="block text-2xl font-bold text-cyberpurple">Tier 2</span>
+                        <span class="text-[10px] uppercase text-gray-500 mono">Escalation</span>
                     </div>
-                    <div class="border-l-2 border-cyberpurple/30 pl-4">
-                        <span class="text-white font-bold block mb-2 uppercase tracking-widest">Soft_Skills</span>
-                        <p class="text-gray-500 text-xs italic">Critical Thinking, Technical Documentation, Crisis Management.</p>
+                    <div class="p-4 bg-white/5 rounded-2xl border border-white/5 text-center">
+                        <span class="block text-2xl font-bold text-cyberpink">20/20</span>
+                        <span class="text-[10px] uppercase text-gray-500 mono">PHP Score</span>
                     </div>
                 </div>
-                <p class="text-gray-400 pt-4">
-                    Driven by a "Security First" mindset, I am constantly documenting my progress through hands-on labs and official certifications from <span class="text-white underline decoration-cyberpink">Cisco Networking Academy</span> and <span class="text-white underline decoration-cyberpink">CINEL</span>.
-                </p>
             </div>
         </div>
         <footer-component></footer-component>
     </section>
 
-    <!-- SECTION: PROJECTS -->
-    <section id="projects" class="page-section pt-32 px-8 max-w-7xl mx-auto">
-        <h2 class="text-4xl font-bold mono text-cyberpink mb-10 tracking-tighter">// Projects_Lab</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="glass p-8 border border-cyberpurple/20 hover:border-cyberpink/40 transition-all">
-                <h3 class="text-xl font-bold text-white mb-4 italic">SNORT_IDS_IMPLEMENTATION</h3>
-                <p class="mono text-xs text-gray-500 mb-6">Configuração de regras personalizadas para deteção de tráfego malicioso e análise de logs em tempo real em ambiente Linux.</p>
-                <div class="flex gap-4">
-                    <span class="text-[10px] px-2 py-1 bg-cyberpurple/20 text-cyberpurple mono">Network Security</span>
-                    <span class="text-[10px] px-2 py-1 bg-cyberpink/20 text-cyberpink mono">Linux</span>
+    <!-- SECTION: BADGES (Quadrados com Bordas Redondas) -->
+    <section id="badges" class="page-section pt-32 px-6 max-w-6xl mx-auto">
+        <h2 class="text-4xl font-extrabold mb-10">// Badges</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="modern-card aspect-square flex flex-col items-center justify-center p-8">
+                <div class="w-40 h-40 mb-6 relative">
+                    <img src="badges/Cisco_Networking_Basics.png" alt="Badge" class="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(138,43,226,0.3)]">
                 </div>
+                <h3 class="font-bold text-center text-sm uppercase tracking-widest">Networking Basics</h3>
+                <p class="mono text-[10px] text-gray-500 mt-2 italic">Cisco Verified</p>
             </div>
-            <div class="glass p-8 border border-cyberpurple/20 hover:border-cyberpink/40 transition-all">
-                <h3 class="text-xl font-bold text-white mb-4 italic">PYTHON_PORT_SCANNER</h3>
-                <p class="mono text-xs text-gray-500 mb-6">Desenvolvimento de ferramenta para scanning de portos e enumeração de serviços para auditoria básica de segurança.</p>
-                <div class="flex gap-4">
-                    <span class="text-[10px] px-2 py-1 bg-cyberpurple/20 text-cyberpurple mono">Python</span>
-                    <span class="text-[10px] px-2 py-1 bg-cyberpink/20 text-cyberpink mono">Recon</span>
+
+            <div class="modern-card aspect-square flex flex-col items-center justify-center p-8">
+                <div class="w-40 h-40 mb-6 relative">
+                    <img src="badges/Cisco_Intro_Cybersecurity.png" alt="Badge" class="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(255,0,255,0.3)]">
                 </div>
+                <h3 class="font-bold text-center text-sm uppercase tracking-widest">Intro to Cybersecurity</h3>
+                <p class="mono text-[10px] text-gray-500 mt-2 italic">Cisco Verified</p>
             </div>
+
         </div>
         <footer-component></footer-component>
     </section>
 
     <!-- SECTION: CERTIFICATES -->
-    <section id="certificates" class="page-section pt-32 px-8 max-w-7xl mx-auto">
-        <h2 class="text-4xl font-bold mono text-cyberpink mb-10 tracking-tighter">// Certificates_Log</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="glass p-6 border border-cyberpurple/10 flex justify-between items-center group hover:border-cyberpink/30 transition-all">
+    <section id="certificates" class="page-section pt-32 px-6 max-w-5xl mx-auto">
+        <h2 class="text-4xl font-extrabold mb-10">// Certificates</h2>
+        <div class="space-y-4">
+            <div class="modern-card p-6 flex flex-wrap justify-between items-center group">
                 <div>
-                    <h3 class="text-white font-bold mono text-sm uppercase">Cisco Networking Basics</h3>
-                    <p class="text-[10px] text-gray-500 mono">Cisco Networking Academy</p>
+                    <h3 class="text-white font-bold text-lg">Advanced PHP Development</h3>
+                    <p class="text-sm text-gray-500">CINEL - Specialized Training</p>
                 </div>
-                <a href="certificates/Cisco_Networking_Basics.pdf" target="_blank" class="text-cyberpink mono text-[10px] border border-cyberpink px-4 py-2 hover:bg-cyberpink hover:text-black transition-all">OPEN_PDF</a>
+                <a href="certificates/Cinel_PHP.pdf" target="_blank" class="mt-4 md:mt-0 px-6 py-2 border border-cyberpink/30 hover:bg-cyberpink hover:text-white rounded-full transition-all text-xs font-bold uppercase mono">Verify_PDF</a>
             </div>
-            <div class="glass p-6 border border-cyberpurple/10 flex justify-between items-center group hover:border-cyberpink/30 transition-all">
-                <div>
-                    <h3 class="text-white font-bold mono text-sm uppercase">Introduction to Cybersecurity</h3>
-                    <p class="text-[10px] text-gray-500 mono">Cisco Networking Academy</p>
-                </div>
-                <a href="certificates/Cisco_Intro_Cybersecurity.pdf" target="_blank" class="text-cyberpink mono text-[10px] border border-cyberpink px-4 py-2 hover:bg-cyberpink hover:text-black transition-all">OPEN_PDF</a>
-            </div>
-            <div class="glass p-6 border border-cyberpurple/10 flex justify-between items-center group hover:border-cyberpink/30 transition-all">
-                <div>
-                    <h3 class="text-white font-bold mono text-sm uppercase">Advanced PHP Scripting</h3>
-                    <p class="text-[10px] text-gray-500 mono">CINEL (Grade: 20/20)</p>
-                </div>
-                <a href="certificates/Cinel_PHP.pdf" target="_blank" class="text-cyberpink mono text-[10px] border border-cyberpink px-4 py-2 hover:bg-cyberpink hover:text-black transition-all">OPEN_PDF</a>
-            </div>
-            <div class="glass p-6 border border-cyberpurple/10 flex justify-between items-center group hover:border-cyberpink/30 transition-all">
-                <div>
-                    <h3 class="text-white font-bold mono text-sm uppercase">EF SET English Certificate</h3>
-                    <p class="text-[10px] text-gray-500 mono">Professional Proficiency</p>
-                </div>
-                <a href="certificates/EF_SET.pdf" target="_blank" class="text-cyberpink mono text-[10px] border border-cyberpink px-4 py-2 hover:bg-cyberpink hover:text-black transition-all">OPEN_PDF</a>
-            </div>
+            <!-- Mais certificados aqui -->
         </div>
         <footer-component></footer-component>
     </section>
 
-    <!-- SECTION: BADGES -->
-    <section id="badges" class="page-section pt-32 px-8 max-w-7xl mx-auto">
-        <h2 class="text-4xl font-bold mono text-cyberpink mb-10 tracking-tighter">// Digital_Badges</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div class="glass p-6 border border-cyberpurple/10 hover:border-cyberpink/40 transition-all text-center group">
-                <img src="badges/cisco_networking_basics.png" alt="Badge" class="w-24 h-24 mx-auto mb-4 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500">
-                <span class="mono text-[10px] text-white font-bold block uppercase tracking-widest">Networking Basics</span>
-                <span class="mono text-[8px] text-cyberpurple italic">Cisco Verified</span>
-            </div>
-            <div class="glass p-6 border border-cyberpurple/10 hover:border-cyberpink/40 transition-all text-center group">
-                <img src="badges/cisco_intro_cyber.png" alt="Badge" class="w-24 h-24 mx-auto mb-4 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500">
-                <span class="mono text-[10px] text-white font-bold block uppercase tracking-widest">Intro to Cyber</span>
-                <span class="mono text-[8px] text-cyberpurple italic">Cisco Verified</span>
-            </div>
-        </div>
-        <footer-component></footer-component>
-    </section>
-
-    <!-- SECTION: SKILLS -->
-    <section id="skills" class="page-section pt-32 px-8 max-w-7xl mx-auto">
-        <h2 class="text-4xl font-bold mono text-cyberpink mb-10 tracking-tighter">// Skill_Matrix</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="glass p-8 border border-cyberpurple/20">
-                <h3 class="text-white font-bold mono mb-6 border-b border-cyberpurple/30 pb-2 uppercase tracking-widest">Network_Infra</h3>
-                <ul class="space-y-4 mono text-[11px] text-gray-400">
-                    <li><span class="text-cyberpink">>></span> TCP/IP & OSI Models</li>
-                    <li><span class="text-cyberpink">>></span> Routing & Switching</li>
-                    <li><span class="text-cyberpink">>></span> IPv4 / IPv6 Management</li>
-                </ul>
-            </div>
-            <div class="glass p-8 border border-cyberpurple/20">
-                <h3 class="text-white font-bold mono mb-6 border-b border-cyberpurple/30 pb-2 uppercase tracking-widest">Escalation_T2</h3>
-                <ul class="space-y-4 mono text-[11px] text-gray-400">
-                    <li><span class="text-cyberpink">>></span> Incident Documentation</li>
-                    <li><span class="text-cyberpink">>></span> Advanced Troubleshooting</li>
-                    <li><span class="text-cyberpink">>></span> SLA / KPI Compliance</li>
-                </ul>
-            </div>
-            <div class="glass p-8 border border-cyberpurple/20">
-                <h3 class="text-white font-bold mono mb-6 border-b border-cyberpurple/30 pb-2 uppercase tracking-widest">Security_Dev</h3>
-                <ul class="space-y-4 mono text-[11px] text-gray-400">
-                    <li><span class="text-cyberpink">>></span> IDS/IPS (Snort)</li>
-                    <li><span class="text-cyberpink">>></span> Linux Terminal Mastery</li>
-                    <li><span class="text-cyberpink">>></span> PHP & Scripting</li>
-                </ul>
-            </div>
-        </div>
-        <footer-component></footer-component>
-    </section>
-
-    <!-- SECTION: CONTACTS -->
-    <section id="contacts" class="page-section pt-32 px-8 max-w-7xl mx-auto">
-        <h2 class="text-4xl font-bold mono text-cyberpink mb-10 tracking-tighter">// Connect_Tunnel</h2>
-        <div class="max-w-2xl mx-auto text-center space-y-12">
-            <p class="mono text-sm tracking-widest uppercase">Available for Cybersecurity opportunities and collaborations.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <a href="https://linkedin.com/in/jorgemorga" target="_blank" class="glass p-10 border border-cyberpurple/20 hover:bg-cyberpurple/10 transition-all group">
-                    <span class="block text-white font-bold mono mb-2 underline decoration-cyberpink uppercase tracking-widest">LinkedIn</span>
-                    <span class="text-[10px] text-gray-500">View Professional Profile</span>
+    <!-- CONTACTS -->
+    <section id="contacts" class="page-section pt-32 px-6 max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-extrabold mb-10">Get In Touch</h2>
+        <div class="modern-card p-12">
+            <p class="text-xl text-gray-400 mb-8">Estou disponível para novos desafios em Cybersecurity e Cloud.</p>
+            <div class="flex justify-center gap-6">
+                <a href="https://linkedin.com/in/jorgemorga" class="p-4 bg-white/5 rounded-full hover:bg-cyberpurple transition-all">
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" class="w-6 h-6 invert" alt="Linkedin">
                 </a>
-                <a href="mailto:jorge.morga@example.com" class="glass p-10 border border-cyberpurple/20 hover:bg-cyberpink/10 transition-all group">
-                    <span class="block text-white font-bold mono mb-2 underline decoration-cyberpurple uppercase tracking-widest">Direct_Email</span>
-                    <span class="text-[10px] text-gray-500">Initiate Secure Contact</span>
+                <a href="mailto:jorge.morga@email.com" class="p-4 bg-white/5 rounded-full hover:bg-cyberpink transition-all">
+                    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" class="w-6 h-6 invert" alt="Email">
                 </a>
             </div>
         </div>
         <footer-component></footer-component>
     </section>
 
-    <!-- FOOTER TEMPLATE -->
+    <!-- FOOTER -->
     <template id="footer-template">
-        <footer class="py-20 border-t border-cyberpurple/10 text-center mt-20">
-            <div class="flex justify-center gap-8 mb-8 mono text-[10px] uppercase tracking-widest">
-                <a href="https://linkedin.com/in/jorgemorga" target="_blank" class="hover:text-cyberpink transition-all font-bold text-gray-400">[ LinkedIn ]</a>
-                <a href="https://github.com/jorgemorga89" target="_blank" class="hover:text-cyberpink transition-all font-bold text-gray-400">[ GitHub ]</a>
-            </div>
-            <div class="mono text-[10px] text-gray-600 uppercase tracking-[0.5em] mb-4">System Status: Secure // Connection: Encrypted</div>
-            <p class="text-[9px] text-gray-700 mono uppercase tracking-widest font-bold">© 2026 JORGE MORGA // DESIGNED FOR THE CYBER_SEC FRONTIER</p>
+        <footer class="py-20 text-center text-gray-600 text-[10px] mono uppercase tracking-[0.4em]">
+            &copy; 2026 Jorge Morga // Security Analyst Portal
         </footer>
     </template>
 
@@ -281,12 +203,13 @@
             document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
             const target = document.getElementById(sectionId);
             if(target) target.classList.add('active');
-            window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        // Simples animação de entrada do nome
         const scrambleElement = document.getElementById('scramble-runtime');
         const finalString = "JORGE MORGA";
-        const characters = "!@#$%^&*()_+?><{}[]";
+        const characters = "ABCDEF0123456789";
         let frame = 0;
         function animateText() {
             let output = "";
@@ -297,7 +220,7 @@
             scrambleElement.innerText = output;
             if (frame / 3 < finalString.length) { frame++; requestAnimationFrame(animateText); }
         }
-        setTimeout(animateText, 800);
+        setTimeout(animateText, 500);
     </script>
 </body>
 </html>
