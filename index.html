@@ -39,26 +39,25 @@
 
     <div class="scanlines"></div>
 
-    <!-- NAVBAR -->
-    <nav class="fixed w-full z-50 glass py-4 px-8 flex justify-between items-center border-b border-cyberpink/10">
-        <a href="javascript:void(0)" onclick="showSection('home')" class="flex items-center gap-3">
-            <!-- Custom Shield SVG -->
-            <svg class="h-8 w-8" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                <path d="M465.3 124.7c-31.5-12.7-65.4-23-100-30.4C333.1 41.5 285.9 0 256 0s-77.1 41.5-109.3 94.3c-34.6 7.4-68.5 17.7-100 30.4C19.3 135.2 0 168.1 0 203.4c0 148.5 137.9 265.8 240.3 304.1 9.9 3.7 21.5 3.7 31.4 0C374.1 469.2 512 351.9 512 203.4c0-35.3-19.3-68.2-46.7-78.7z" fill="#ff00ff"/>
-                <path d="M441.6 183.3c-23.7-10-49.8-17.8-77.6-23.2-31.3-6.1-64.4-9.3-98.1-9.3s-66.8 3.2-98.1 9.3c-27.8 5.4-53.9 13.2-77.6 23.2-11.4 4.8-18.2 15.6-18.2 27.6 0 117.8 107.5 211.5 193.9 243.6 12.6 4.7 26.6 4.7 39.2 0 86.4-32.1 193.9-125.8 193.9-243.6 0-12-6.8-22.8-18.2-27.6z" fill="none" stroke="#ffffff" stroke-width="20"/>
-                <path d="M213.3 300.3l-53.3-53.3-22.7 22.7 76 76 160-160-22.7-22.7z" fill="#ffffff"/>
-            </svg>
-            <span class="mono text-white font-bold text-xl tracking-tighter">C_SEC</span>
-        </a>
-        <div class="space-x-6 hidden md:flex mono text-[10px] uppercase tracking-widest font-bold">
-            <a href="javascript:void(0)" onclick="showSection('about')" class="hover:text-cyberpink transition-all font-bold">// About</a>
-            <a href="javascript:void(0)" onclick="showSection('projects')" class="hover:text-cyberpink transition-all font-bold">// Projects</a>
-            <a href="javascript:void(0)" onclick="showSection('certificates')" class="hover:text-cyberpink transition-all font-bold">// Certificates</a>
-            <a href="javascript:void(0)" onclick="showSection('badges')" class="hover:text-cyberpink transition-all font-bold">// Badges</a>
-            <a href="javascript:void(0)" onclick="showSection('skills')" class="hover:text-cyberpink transition-all font-bold">// Skills</a>
-            <a href="javascript:void(0)" onclick="showSection('contacts')" class="hover:text-cyberpink transition-all font-bold">// Contacts</a>
-        </div>
-    </nav>
+   <!-- NAVBAR UPDATED: TEXT-ONLY LOGO -->
+<nav class="fixed w-full z-50 glass py-4 px-8 flex justify-between items-center border-b border-cyberpink/10">
+    <!-- Left side: Minimalist Terminal-style Logo -->
+    <a href="javascript:void(0)" onclick="showSection('home')" class="flex items-center group">
+        <span class="mono text-white font-normal text-[10px] uppercase tracking-widest hover:text-cyberpink transition-all">
+            ./c_sec
+        </span>
+    </a>
+
+    <!-- Right side: Section Links -->
+    <div class="space-x-6 hidden md:flex mono text-[10px] uppercase tracking-widest font-bold">
+        <a href="javascript:void(0)" onclick="showSection('about')" class="hover:text-cyberpink transition-all">// About</a>
+        <a href="javascript:void(0)" onclick="showSection('projects')" class="hover:text-cyberpink transition-all">// Projects</a>
+        <a href="javascript:void(0)" onclick="showSection('certificates')" class="hover:text-cyberpink transition-all">// Certificates</a>
+        <a href="javascript:void(0)" onclick="showSection('badges')" class="hover:text-cyberpink transition-all">// Badges</a>
+        <a href="javascript:void(0)" onclick="showSection('skills')" class="hover:text-cyberpink transition-all">// Skills</a>
+        <a href="javascript:void(0)" onclick="showSection('contacts')" class="hover:text-cyberpink transition-all">// Contacts</a>
+    </div>
+</nav>
 
     <!-- SECTION: HOME -->
     <main id="home" class="page-section active">
